@@ -1,0 +1,30 @@
+{
+  "app_name": "JNotebook",
+  "page_title_login": "登录",
+  "loading": "加载中",
+  "error_input_username": "请输入用户名",
+  "error_input_password": "请输入密码",
+  "hint_input_username": "用户名",
+  "hint_input_password": "密码",
+  "title_unnamed": "未命名",
+  "hint_title": "标题",
+  "all_note": "所有笔记",
+  "order_create_time": "按创建时间",
+  "order_edit_time": "按编辑时间",
+  "create_note": "新建笔记",
+  "unclassified_note": "未分类",
+  "my_folder": "我的文件夹",
+  "recycle_bin": "回收站",
+  "login": "登录",
+  "search_note": "搜索笔记",
+  "select_language": "选择语言",
+  "total_notes": "共{count}条笔记",
+  "@total_notes": {
+    "placeholders": {
+      "count": {
+        "type": "int",
+        "example": "1"
+      }
+    }
+  }
+}

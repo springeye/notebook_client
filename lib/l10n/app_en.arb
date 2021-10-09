@@ -1,0 +1,30 @@
+{
+  "app_name": "JNotebook",
+  "page_title_login": "Note Login",
+  "loading": "loading",
+  "error_input_username": "Please enter username",
+  "error_input_password": "Please enter password",
+  "hint_input_username": "Username",
+  "hint_input_password": "Password",
+  "hint_title": "title",
+  "title_unnamed": "Unnamed",
+  "all_note": "All note",
+  "order_create_time": "Order By Create",
+  "order_edit_time": "Order By Edit",
+  "create_note": "Create note",
+  "unclassified_note": "Unclassified note",
+  "my_folder": "My folder",
+  "recycle_bin": "Recycle bin",
+  "login": "Login",
+  "select_language": "Select language",
+  "search_note": "Search Note",
+  "total_notes": "{count} notes in total",
+  "@total_notes": {
+    "placeholders": {
+      "count": {
+        "type": "int",
+        "example": "1"
+      }
+    }
+  }
+}
