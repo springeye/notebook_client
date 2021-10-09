@@ -6,7 +6,9 @@
 
 ## project developing,coming soon!
 
-![img](screenhots/img.png)
+![img1](screenhots/img1.png)
+
+![img2](screenhots/img2.png)
 
   
 ## 1. Install flutter 2.5.1 or Higher
