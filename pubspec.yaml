@@ -51,6 +51,7 @@ dependencies:
   crypto: ^3.0.1
   ntp: ^2.0.0
   otp: ^3.0.1
+  get_it: ^7.2.0
 
 
 dev_dependencies:

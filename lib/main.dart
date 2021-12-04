@@ -12,10 +12,11 @@ import 'package:notebook/bloc/locale_bloc.dart';
 import 'package:notebook/datastore/app_data_store.dart';
 import 'package:notebook/platform/desktop_application.dart';
 import 'package:notebook/platform/mobile_application.dart';
-import 'package:path_provider/path_provider.dart';
 import 'package:path/path.dart';
-import 'bloc/login_bloc.dart';
+import 'package:path_provider/path_provider.dart';
 import 'package:sqflite_common_ffi/sqflite_ffi.dart';
+
+import 'bloc/login_bloc.dart';
 
 class Bootstrap extends StatelessWidget {
   final easyload = EasyLoading.init();
