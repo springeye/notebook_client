@@ -3,12 +3,9 @@ import 'dart:convert';
 import 'dart:io';
 
 import 'package:file_picker/file_picker.dart';
-import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_quill/models/documents/document.dart';
-import 'package:flutter_quill/widgets/controller.dart';
-import 'package:flutter_quill/widgets/editor.dart';
-import 'package:flutter_quill/widgets/toolbar.dart';
+import 'package:flutter_quill/flutter_quill.dart' hide Text;
+import 'package:flutter/material.dart';
 import 'package:notebook/bloc/home_bloc.dart';
 import 'package:notebook/database/entity/note.dart';
 import 'package:path/path.dart';

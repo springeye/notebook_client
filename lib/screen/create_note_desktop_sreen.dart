@@ -7,10 +7,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_gen/gen_l10n/S.dart';
-import 'package:flutter_quill/models/documents/document.dart';
-import 'package:flutter_quill/widgets/controller.dart';
-import 'package:flutter_quill/widgets/editor.dart';
-import 'package:flutter_quill/widgets/toolbar.dart';
+import 'package:flutter_quill/flutter_quill.dart' hide Text;
 import 'package:notebook/bloc/home_bloc.dart';
 import 'package:notebook/database/entity/note.dart';
 import 'package:notebook/shortcuts/intents.dart';
@@ -135,7 +132,6 @@ class _CreateNoteState extends State<CreateNoteDesktopScreen> {
                           showVideoButton: false,
                           showCameraButton: false,
                           showHeaderStyle: false,
-                          showHistory: false,
                           showIndent: false,
                           showQuote: false,
                           showListCheck: false,

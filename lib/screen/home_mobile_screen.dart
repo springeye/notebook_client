@@ -5,7 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_easyloading/flutter_easyloading.dart';
 import 'package:flutter_gen/gen_l10n/S.dart';
-import 'package:flutter_quill/models/documents/document.dart';
+import 'package:flutter_quill/flutter_quill.dart' hide Text;
 import 'package:intl/intl.dart';
 import 'package:notebook/bloc/home_bloc.dart';
 import 'package:notebook/database/entity/note.dart';
