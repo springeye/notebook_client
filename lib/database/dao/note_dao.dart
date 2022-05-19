@@ -28,8 +28,8 @@ abstract class NoteDao {
   @Query('SELECT * FROM Note where deleted = true order by updatedTime desc')
   Future<List<Note>> findByDeleted();
 
-  @Query('SELECT * FROM Note where id = :id')
-  Future<Note?> findById(String id);
+  @Query('SELECT * FROM Note where uuid = :uuid')
+  Future<Note?> findById(String uuid);
 
   @Insert(onConflict: OnConflictStrategy.replace)
   Future<void> insert(Note item);
@@ -37,8 +37,8 @@ abstract class NoteDao {
   @Update(onConflict: OnConflictStrategy.replace)
   Future<void> update(Note item);
 
-  @Query('delete FROM Note where id = :id')
-  Future<void> delete(String id);
+  @Query('delete FROM Note where uuid = :uuid')
+  Future<void> delete(String uuid);
 
   @transaction
   Future<void> deletes(List<String> ids) async {

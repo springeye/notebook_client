@@ -4,6 +4,8 @@ import 'package:flutter/material.dart';
 import 'desktop_window.dart';
 
 class DesktopWindow extends StatelessWidget {
+  const DesktopWindow({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return Expanded(
@@ -16,7 +18,7 @@ class DesktopWindow extends StatelessWidget {
                     Theme.of(context).primaryColor,
                     Theme.of(context).primaryColor,
                   ],
-                  stops: [
+                  stops: const [
                     0.0,
                     1.0
                   ]),
@@ -29,7 +31,7 @@ class DesktopWindow extends StatelessWidget {
                     WindowButtons()
                   ]),
                 ),
-                Expanded(child: const DesktopContent())
+                const Expanded(child: DesktopContent())
               ],
             )));
   }
@@ -38,16 +40,16 @@ class DesktopWindow extends StatelessWidget {
 class WindowButtons extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    final buttonColors = WindowButtonColors(
+    final WindowButtonColors buttonColors = WindowButtonColors(
         iconNormal: Colors.blueGrey,
         mouseOver: Theme.of(context).hoverColor,
         mouseDown: Theme.of(context).primaryColorDark,
         iconMouseOver: Colors.blueGrey,
-        iconMouseDown: Color(0xFFFFD500));
+        iconMouseDown: const Color(0xFFFFD500));
 
-    final closeButtonColors = WindowButtonColors(
-        mouseOver: Color(0xFFD32F2F),
-        mouseDown: Color(0xFFB71C1C),
+    final WindowButtonColors closeButtonColors = WindowButtonColors(
+        mouseOver: const Color(0xFFD32F2F),
+        mouseDown: const Color(0xFFB71C1C),
         iconNormal: Colors.blueGrey,
         iconMouseOver: Colors.white);
     return Row(

@@ -5,29 +5,25 @@ import 'dart:io';
 import 'package:file_picker/file_picker.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_gen/gen_l10n/S.dart';
-import 'package:notebook/bloc/home_bloc.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:notebook/database/entity/note.dart';
+import 'package:notebook/logic/note.dart';
 import 'package:notebook/shortcuts/intents.dart';
 import 'package:path/path.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:super_editor/super_editor.dart';
 
 class CreateNoteDesktopScreen extends StatefulWidget {
-  CreateNoteDesktopScreen({
+  const CreateNoteDesktopScreen({
     Key? key,
   }) : super(key: key);
 
-  String get title => state.title;
 
-  String get content => state.content;
-  late _CreateNoteState state;
 
   @override
   State<StatefulWidget> createState() {
-    state = _CreateNoteState();
-    return state;
+    return _CreateNoteState();
   }
 }
 
@@ -45,40 +41,24 @@ class _CreateNoteState extends State<CreateNoteDesktopScreen> {
 
   Note? note;
 
-  save(BuildContext context) {
+  save(BuildContext context,WidgetRef ref) {
     var newContent = json.encode("");
     var newTitle = titleController.text;
     if (note != null) {
       if (newTitle != note!.title || newContent != note!.content) {
         note!.title = newTitle;
         note!.content = newContent;
-        BlocProvider.of<HomeBloc>(context).add(UpdateNoteEvent(note!));
+        ref.read(noteListProvider.notifier).update(note!);
       }
     }
   }
 
   @override
   Widget build(BuildContext context) {
-    return BlocBuilder<HomeBloc, HomeState>(
-      buildWhen: (pre, current) {
-        if (pre is ShowNoteState && current is ShowNoteState) {
-          save(context);
-        }
-        return current is ShowNoteState;
-      },
-      builder: (context, state) {
-        if (state is ShowNoteState) {
-          const textSelection = const TextSelection.collapsed(offset: 0);
-          if (state.index >= 0) {
-            note = state.note;
-            titleController = TextEditingController(text: note!.title);
-            var content = json.decode(note!.content);
-
-          } else {
-            titleController = TextEditingController(text: "");
-
-          }
-        }
+    return  Consumer(
+      builder: (BuildContext context,WidgetRef ref,Widget? widget) {
+        var showNote=ref.watch(showDetailProvider);
+        titleController.value=TextEditingValue(text: showNote?.title??"");
         return Scaffold(
           body: MouseRegion(
             onHover: (event) {
@@ -88,7 +68,7 @@ class _CreateNoteState extends State<CreateNoteDesktopScreen> {
               // print("onEnter");
             },
             onExit: (event) {
-              save(context);
+              save(context,ref);
             },
             /**
              * 快捷键处理
@@ -96,13 +76,13 @@ class _CreateNoteState extends State<CreateNoteDesktopScreen> {
             child: Shortcuts(
               shortcuts: <LogicalKeySet, Intent>{
                 LogicalKeySet(
-                        LogicalKeyboardKey.control, LogicalKeyboardKey.keyS):
-                    SaveIntent()
+                    LogicalKeyboardKey.control, LogicalKeyboardKey.keyS):
+                SaveIntent()
               },
               child: Actions(
                 actions: <Type, Action<Intent>>{
                   SaveIntent: CallbackAction<SaveIntent>(onInvoke: (intent) {
-                    save(context);
+                    save(context,ref);
                   })
                 },
                 child: Container(
@@ -131,7 +111,7 @@ class _CreateNoteState extends State<CreateNoteDesktopScreen> {
             ),
           ),
         );
-      },
+      }
     );
   }
 

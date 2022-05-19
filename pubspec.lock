@@ -85,13 +85,6 @@ packages:
       url: "https://mirrors.cloud.tencent.com/dart-pub/"
     source: hosted
     version: "0.1.2"
-  bloc:
-    dependency: transitive
-    description:
-      name: bloc
-      url: "https://mirrors.cloud.tencent.com/dart-pub/"
-    source: hosted
-    version: "8.0.3"
   boolean_selector:
     dependency: transitive
     description:
@@ -328,13 +321,6 @@ packages:
     description: flutter
     source: sdk
     version: "0.0.0"
-  flutter_bloc:
-    dependency: "direct main"
-    description:
-      name: flutter_bloc
-      url: "https://mirrors.cloud.tencent.com/dart-pub/"
-    source: hosted
-    version: "8.0.1"
   flutter_easyloading:
     dependency: "direct main"
     description:
@@ -363,6 +349,13 @@ packages:
       url: "https://mirrors.cloud.tencent.com/dart-pub/"
     source: hosted
     version: "2.0.6"
+  flutter_riverpod:
+    dependency: "direct main"
+    description:
+      name: flutter_riverpod
+      url: "https://mirrors.cloud.tencent.com/dart-pub/"
+    source: hosted
+    version: "1.0.4"
   flutter_spinkit:
     dependency: transitive
     description:
@@ -541,13 +534,6 @@ packages:
       url: "https://mirrors.cloud.tencent.com/dart-pub/"
     source: hosted
     version: "3.6.2"
-  nested:
-    dependency: transitive
-    description:
-      name: nested
-      url: "https://mirrors.cloud.tencent.com/dart-pub/"
-    source: hosted
-    version: "1.0.0"
   node_preamble:
     dependency: transitive
     description:
@@ -674,13 +660,6 @@ packages:
       url: "https://mirrors.cloud.tencent.com/dart-pub/"
     source: hosted
     version: "4.2.4"
-  provider:
-    dependency: transitive
-    description:
-      name: provider
-      url: "https://mirrors.cloud.tencent.com/dart-pub/"
-    source: hosted
-    version: "6.0.2"
   pub_semver:
     dependency: transitive
     description:
@@ -720,6 +699,13 @@ packages:
       url: "https://github.com/springeye/retrofit.dart.git"
     source: git
     version: "4.0.1"
+  riverpod:
+    dependency: transitive
+    description:
+      name: riverpod
+      url: "https://mirrors.cloud.tencent.com/dart-pub/"
+    source: hosted
+    version: "1.0.3"
   rxdart:
     dependency: "direct main"
     description:
@@ -886,6 +872,13 @@ packages:
       url: "https://mirrors.cloud.tencent.com/dart-pub/"
     source: hosted
     version: "1.10.0"
+  state_notifier:
+    dependency: transitive
+    description:
+      name: state_notifier
+      url: "https://mirrors.cloud.tencent.com/dart-pub/"
+    source: hosted
+    version: "0.7.2+1"
   stream_channel:
     dependency: transitive
     description:
@@ -919,7 +912,7 @@ packages:
     description:
       path: super_editor
       ref: HEAD
-      resolved-ref: "1e2ed249c5ccc18daf81d6ee130cde0620701d32"
+      resolved-ref: "53bcf6ce85dc1b3a1149ed33a491e8c24919a369"
       url: "https://github.com/superlistapp/super_editor.git"
     source: git
     version: "0.2.0"
@@ -1065,4 +1058,4 @@ packages:
     version: "3.1.1"
 sdks:
   dart: ">=2.17.0 <3.0.0"
-  flutter: ">=2.8.1"
+  flutter: ">=3.0.0"
