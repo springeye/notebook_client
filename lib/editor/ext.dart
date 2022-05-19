@@ -30,20 +30,20 @@ extension NodeToJson on DocumentNode{
       Map<String,dynamic>  params = {};
       params['type']=node.type.name;
       params['indent']=node.indent;
-      params['text']=node.text.toText();
+      params['text']=node.text.toJson();
       json['node_type']="list";
       json['attrs']=params;
     }else if(node is ParagraphNode){
       final Attribution? blockType = node.getMetadataValue('blockType');
       Map<String,dynamic>  params = {};
       params['blockType']=blockType?.id;
-      params['text']=node.text.toText();
+      params['text']=node.text.toJson();
       json['node_type']="paragraph";
       json['attrs']=params;
     }else if(node is TaskNode){
       Map<String,dynamic>  params = {};
       params['isComplete']=node.isComplete;
-      params['text']=node.text.toText();
+      params['text']=node.text.toJson();
       json['node_type']="task";
       json['attrs']=params;
     }
@@ -52,7 +52,16 @@ extension NodeToJson on DocumentNode{
   }
 }
 extension AttrubiteTextToText on AttributedText{
-  String toText(){
-    return text;
+  Map<String,dynamic> toJson(){
+    Map<String,dynamic>  params = {};
+    params['text']=text;
+    params['spans']=spans.toJson();
+    return params;
+  }
+}
+extension AttributedSpansToText on AttributedSpans{
+  Map<String,dynamic> toJson(){
+    Map<String,dynamic>  params = {};
+    return params;
   }
 }
