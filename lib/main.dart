@@ -1,6 +1,7 @@
 import 'dart:io';
 
 import 'package:bitsdojo_window/bitsdojo_window.dart';
+import 'package:bitsdojo_window_platform_interface/window.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -16,22 +17,21 @@ import 'package:path/path.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:sqflite_common_ffi/sqflite_ffi.dart';
 
-import 'bloc/login_bloc.dart';
 
 class Bootstrap extends StatelessWidget {
-  final easyload = EasyLoading.init();
+  final TransitionBuilder easyload = EasyLoading.init();
 
   @override
   Widget build(BuildContext context) {
-    var localizationsDelegates = [
+    List<LocalizationsDelegate<Object>> localizationsDelegates = [
       S.delegate,
       GlobalMaterialLocalizations.delegate,
       GlobalWidgetsLocalizations.delegate,
       GlobalCupertinoLocalizations.delegate,
     ];
     return BlocBuilder<LocaleBloc, LocaleState>(
-      builder: (context, state) {
-        var currentLocale = state is LocaleChangeState
+      builder: (BuildContext context, LocaleState state) {
+        Locale currentLocale = state is LocaleChangeState
             ? state.locale
             : Locale.fromSubtags(languageCode: "en");
         return MaterialApp(
@@ -41,7 +41,7 @@ class Bootstrap extends StatelessWidget {
           supportedLocales: S.supportedLocales,
           locale: currentLocale,
           home: isMobile ? MobileApplication() : DesktopApplication(),
-          builder: (context, child) {
+          builder: (BuildContext context, Widget? child) {
             child = easyload(context, child);
             return child;
           },
@@ -55,14 +55,14 @@ final bool isMobile = Platform.isAndroid || Platform.isIOS;
 
 void main() {
   Logger.root.level = Level.ALL; // defaults to Level.INFO
-  Logger.root.onRecord.listen((record) {
+  Logger.root.onRecord.listen((LogRecord record) {
     print('${record.level.name}/${record.time}: ${record.message}');
   });
   launchApp();
 }
 
 void launchApp() async {
-  var db_path = await databaseFactoryFfi.getDatabasesPath();
+  String db_path = await databaseFactoryFfi.getDatabasesPath();
   if(kReleaseMode) {
     Directory appDocDir = await getApplicationSupportDirectory();
     db_path = join(appDocDir.path, "databases");
@@ -72,15 +72,12 @@ void launchApp() async {
   Logger("app").info("database path:  ${db_path}");
   // print(db_path);
   WidgetsFlutterBinding.ensureInitialized();
-  var store = AppDataStore.of();
-  var readLanguageCode = await store.getString("locale") ?? "en";
-  var readUserToken = await store.getString("user_token") ?? "";
-  var locale = Locale.fromSubtags(languageCode: readLanguageCode);
+  AppDataStore store = AppDataStore.of();
+  String readLanguageCode = await store.getString("locale") ?? "en";
+  String readUserToken = await store.getString("user_token") ?? "";
+  Locale locale = Locale.fromSubtags(languageCode: readLanguageCode);
   runApp(MultiBlocProvider(
     providers: [
-      BlocProvider(
-        create: (BuildContext content) => LoginBloc(readUserToken.isEmpty?UnauthenticatedState():AuthenticatedState()),
-      ),
       BlocProvider(
         create: (BuildContext content) => LocaleBloc(locale),
       ),
@@ -89,8 +86,8 @@ void launchApp() async {
   ));
   if (!isMobile) {
     doWhenWindowReady(() {
-      final win = appWindow;
-      final initialSize = Size(1100, 800);
+      final DesktopWindow win = appWindow;
+      const Size initialSize = const Size(1100, 800);
       win.minSize = initialSize;
       win.size = initialSize;
       win.alignment = Alignment.center;

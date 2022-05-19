@@ -7,12 +7,12 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_gen/gen_l10n/S.dart';
-import 'package:flutter_quill/flutter_quill.dart' hide Text;
 import 'package:notebook/bloc/home_bloc.dart';
 import 'package:notebook/database/entity/note.dart';
 import 'package:notebook/shortcuts/intents.dart';
 import 'package:path/path.dart';
 import 'package:path_provider/path_provider.dart';
+import 'package:super_editor/super_editor.dart';
 
 class CreateNoteDesktopScreen extends StatefulWidget {
   CreateNoteDesktopScreen({
@@ -34,22 +34,19 @@ class CreateNoteDesktopScreen extends StatefulWidget {
 class _CreateNoteState extends State<CreateNoteDesktopScreen> {
   String get title => titleController.text;
 
-  String get content =>
-      json.encode(contentController.document.toDelta().toJson());
+  String get content => "";
   late TextEditingController titleController;
-  late QuillController contentController;
 
   @override
   void initState() {
     titleController = TextEditingController();
-    contentController = QuillController.basic();
     super.initState();
   }
 
   Note? note;
 
   save(BuildContext context) {
-    var newContent = json.encode(contentController.document.toDelta().toJson());
+    var newContent = json.encode("");
     var newTitle = titleController.text;
     if (note != null) {
       if (newTitle != note!.title || newContent != note!.content) {
@@ -76,14 +73,10 @@ class _CreateNoteState extends State<CreateNoteDesktopScreen> {
             note = state.note;
             titleController = TextEditingController(text: note!.title);
             var content = json.decode(note!.content);
-            contentController = QuillController(
-                document: Document.fromJson(content),
-                selection: textSelection,
-                keepStyleOnNewLine: true);
+
           } else {
             titleController = TextEditingController(text: "");
-            contentController =
-                QuillController(document: Document(), selection: textSelection);
+
           }
         }
         return Scaffold(
@@ -126,29 +119,9 @@ class _CreateNoteState extends State<CreateNoteDesktopScreen> {
                             hintText: S.of(context)!.hint_title,
                             contentPadding: EdgeInsets.all(5)),
                       ),
-                      SingleChildScrollView(
-                        scrollDirection: Axis.horizontal,
-                        child: QuillToolbar.basic(
-                          showVideoButton: false,
-                          showCameraButton: false,
-                          showHeaderStyle: false,
-                          showIndent: false,
-                          showQuote: false,
-                          showListCheck: false,
-                          showListBullets: false,
-                          controller: contentController,
-                          webImagePickImpl: _webImagePickImpl,
-                          filePickImpl: _filePickImpl,
-                          onImagePickCallback: _onImagePickCallback,
-                          showAlignmentButtons: true,
-                        ),
-                      ),
                       Expanded(
                         child: Container(
-                          child: QuillEditor.basic(
-                            controller: contentController,
-                            readOnly: false, // true for view only mode
-                          ),
+                          child: SuperEditor(editor: DocumentEditor(document: MutableDocument())),
                         ),
                       )
                     ],
@@ -170,9 +143,6 @@ class _CreateNoteState extends State<CreateNoteDesktopScreen> {
     return copiedFile.path.toString();
   }
 
-  Future<String?> _webImagePickImpl(OnImagePickCallback onImagePickCallback) {
-    return Future.value("");
-  }
 
   Future<String?> _filePickImpl(BuildContext context) async {
     var result = await FilePicker.platform.pickFiles(

@@ -4,7 +4,6 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_gen/gen_l10n/S.dart';
-import 'package:flutter_quill/flutter_quill.dart' hide Text;
 import 'package:intl/intl.dart';
 import 'package:notebook/bloc/home_bloc.dart';
 import 'package:notebook/bloc/locale_bloc.dart';
@@ -12,12 +11,13 @@ import 'package:notebook/database/entity/note.dart';
 import 'package:notebook/database/entity/notebook.dart';
 import 'package:notebook/datastore/app_data_store.dart';
 import 'package:notebook/model/order_type.dart';
+import 'package:super_editor/super_editor.dart';
 
 import 'base_screen.dart';
 import 'create_note_desktop_sreen.dart';
 
 class HomeDesktopScreen extends StatefulWidget {
-  HomeDesktopScreen({Key? key}) : super(key: key);
+  const HomeDesktopScreen({Key? key}) : super(key: key);
 
   @override
   _HomeScreenState createState() => _HomeScreenState();
@@ -116,7 +116,6 @@ class _HomeScreenState extends BaseScreen<HomeDesktopScreen> {
               itemBuilder: (BuildContext context, int index) {
                 var item = notes[index];
                 var content = item.content;
-                var doc = Document.fromJson(json.decode(content));
                 return GestureDetector(
                   behavior: HitTestBehavior.opaque,
                   onLongPress: () {
@@ -184,7 +183,7 @@ class _HomeScreenState extends BaseScreen<HomeDesktopScreen> {
                                         fontWeight: FontWeight.bold,
                                         fontSize: 18),
                                   ),
-                                  Text(doc.toPlainText(),
+                                  Text("aaaa",
                                       maxLines: 2,
                                       overflow: TextOverflow.ellipsis),
                                   Text(DateFormat("yyyy-MM-dd HH:mm:ss").format(
@@ -231,7 +230,7 @@ class _HomeScreenState extends BaseScreen<HomeDesktopScreen> {
           // Navigator.of(context).pushNamed("/create/note");
           BlocProvider.of<HomeBloc>(context).add(CreateNoteEvent(
               S.of(context)!.title_unnamed,
-              json.encode(Document().toDelta().toJson())));
+              json.encode("aaaa")));
         },
         label: Text(S.of(context)!.create_note),
         style: ElevatedButton.styleFrom(

@@ -29,7 +29,7 @@ class DesktopWindow extends StatelessWidget {
                     WindowButtons()
                   ]),
                 ),
-                Expanded(child: DesktopContent())
+                Expanded(child: const DesktopContent())
               ],
             )));
   }

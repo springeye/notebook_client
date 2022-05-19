@@ -13,7 +13,7 @@ class HomeLoadNote extends HomeEvent {
 
   HomeLoadNote({this.key, this.order});
 }
-
+class ShowLoading extends HomeEvent{}
 class HomeDeleted extends HomeEvent {}
 
 class HomeShowTodo extends HomeEvent {}
