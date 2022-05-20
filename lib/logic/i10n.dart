@@ -3,25 +3,14 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:notebook/datastore/app_data_store.dart';
 import 'package:notebook/logging.dart';
 
-class I10n extends StateNotifier<Locale?>{
-  I10n() : super(null);
-  Future<void> setLocale(Locale? locale) async {
+class I10n extends StateNotifier<Locale>{
+  I10n(Locale locale) : super(locale);
+  Future<void> setLocale(Locale locale) async {
     if(state!=locale) {
-      appLog.fine("设置当前语言:${locale?.languageCode}");
+      appLog.fine("set language: ${locale.languageCode}");
       state = locale;
-      await AppDataStore.of().setString("lang", locale?.languageCode);
-    }
-  }
-  Future<void> storeLocale() async {
-    String? l= await AppDataStore.of().getString("lang",defaultValue: "en");
-    if(l!=state?.languageCode){
-      if(l==null){
-        state=null;
-      }else{
-        state=Locale.fromSubtags(languageCode: l);
-      }
+      await AppDataStore.of().setString("lang", locale.languageCode);
     }
   }
 }
-StateNotifierProvider<I10n, Locale?> i10n = StateNotifierProvider<I10n, Locale?>(
-        (StateNotifierProviderRef<I10n, Locale?> ref) => I10n());
+StateNotifierProvider<I10n, Locale?> i10n = StateNotifierProvider.family<I10n, Locale?,Locale>((StateNotifierProviderRef<I10n, Locale?> ref,Locale local) => I10n(local))(const Locale.fromSubtags(languageCode: "en"));

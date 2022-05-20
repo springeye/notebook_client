@@ -13,16 +13,17 @@ import '_toolbar.dart';
 /// This editor will expand in functionality as package
 /// capabilities expand.
 class AppEditor extends StatefulWidget {
-  const AppEditor({Key? key}) : super(key: key);
+  final Document doc;
+  const AppEditor({Key? key, required this.doc}) : super(key: key);
 
   @override
-  AppEditorState createState() => AppEditorState();
+  AppEditorState createState() => AppEditorState(doc);
 }
 
 class AppEditorState extends State<AppEditor> {
   final GlobalKey _docLayoutKey = GlobalKey();
 
-  late Document doc;
+  final Document doc;
   late DocumentEditor _docEditor;
   late DocumentComposer _composer;
   late CommonEditorOperations _docOps;
@@ -41,10 +42,12 @@ class AppEditorState extends State<AppEditor> {
   OverlayEntry? _imageFormatBarOverlayEntry;
   final _imageSelectionAnchor = ValueNotifier<Offset?>(null);
 
+  AppEditorState(this.doc);
+
   @override
   void initState() {
     super.initState();
-    doc = createInitialDocument()..addListener(_hideOrShowToolbar);
+      doc .addListener(_hideOrShowToolbar);
     _docEditor = DocumentEditor(document: doc as MutableDocument);
     _composer = DocumentComposer()..addListener(_hideOrShowToolbar);
     _docOps = CommonEditorOperations(

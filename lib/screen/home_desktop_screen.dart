@@ -59,6 +59,7 @@ class _HomeScreenState extends BaseScreen<HomeDesktopScreen> {
     final ScrollController controller = ScrollController();
     return Column(
       children: [
+        //top toolbar
         Padding(
           padding: const EdgeInsets.all(12.0),
           child: Row(
@@ -92,6 +93,7 @@ class _HomeScreenState extends BaseScreen<HomeDesktopScreen> {
           indent: 0.0,
           height: 1.0,
         ),
+        //note list
         Expanded(
           child: ListView.separated(
             controller: controller,
@@ -218,6 +220,7 @@ class _HomeScreenState extends BaseScreen<HomeDesktopScreen> {
     Locale currentLocale = Localizations.localeOf(context);
     return Container(
       color: background,
+      //left folder slide
       child: SizedBox(
         width: 240,
         child: Column(
@@ -476,6 +479,7 @@ class _HomeScreenState extends BaseScreen<HomeDesktopScreen> {
                     Expanded(
                       child: Row(
                         children: [
+                          //note listview
                           SizedBox(
                               width: 300,
                               child: Column(
