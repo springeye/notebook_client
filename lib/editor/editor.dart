@@ -40,6 +40,7 @@ class AppEditorState extends State<AppEditor> {
 
   OverlayEntry? _imageFormatBarOverlayEntry;
   final _imageSelectionAnchor = ValueNotifier<Offset?>(null);
+
   @override
   void initState() {
     super.initState();
@@ -49,7 +50,8 @@ class AppEditorState extends State<AppEditor> {
     _docOps = CommonEditorOperations(
       editor: _docEditor,
       composer: _composer,
-      documentLayoutResolver: () => _docLayoutKey.currentState as DocumentLayout,
+      documentLayoutResolver: () =>
+          _docLayoutKey.currentState as DocumentLayout,
     );
     _editorFocusNode = FocusNode();
     _scrollController = ScrollController()..addListener(_hideOrShowToolbar);
@@ -154,8 +156,10 @@ class AppEditorState extends State<AppEditor> {
       }
 
       final docBoundingBox = (_docLayoutKey.currentState as DocumentLayout)
-          .getRectForSelection(_composer.selection!.base, _composer.selection!.extent)!;
-      final docBox = _docLayoutKey.currentContext!.findRenderObject() as RenderBox;
+          .getRectForSelection(
+              _composer.selection!.base, _composer.selection!.extent)!;
+      final docBox =
+          _docLayoutKey.currentContext!.findRenderObject() as RenderBox;
       final overlayBoundingBox = Rect.fromPoints(
         docBox.localToGlobal(docBoundingBox.topLeft),
         docBox.localToGlobal(docBoundingBox.bottomRight),
@@ -213,13 +217,16 @@ class AppEditorState extends State<AppEditor> {
       case TargetPlatform.macOS:
       case TargetPlatform.windows:
         return DocumentInputSource.ime;
-    // return DocumentInputSource.keyboard;
+      // return DocumentInputSource.keyboard;
     }
   }
 
   void _cut() => _docOps.cut();
+
   void _copy() => _docOps.copy();
+
   void _paste() => _docOps.paste();
+
   void _selectAll() => _docOps.selectAll();
 
   void _showImageToolbar() {
@@ -231,7 +238,8 @@ class AppEditorState extends State<AppEditor> {
           composer: _composer,
           setWidth: (nodeId, width) {
             final node = doc.getNodeById(nodeId)!;
-            final currentStyles = SingleColumnLayoutComponentStyles.fromMetadata(node);
+            final currentStyles =
+                SingleColumnLayoutComponentStyles.fromMetadata(node);
             SingleColumnLayoutComponentStyles(
               width: width,
               padding: currentStyles.padding,
@@ -255,8 +263,10 @@ class AppEditorState extends State<AppEditor> {
       }
 
       final docBoundingBox = (_docLayoutKey.currentState as DocumentLayout)
-          .getRectForSelection(_composer.selection!.base, _composer.selection!.extent)!;
-      final docBox = _docLayoutKey.currentContext!.findRenderObject() as RenderBox;
+          .getRectForSelection(
+              _composer.selection!.base, _composer.selection!.extent)!;
+      final docBox =
+          _docLayoutKey.currentContext!.findRenderObject() as RenderBox;
       final overlayBoundingBox = Rect.fromPoints(
         docBox.localToGlobal(docBoundingBox.topLeft),
         docBox.localToGlobal(docBoundingBox.bottomRight),
@@ -287,26 +297,24 @@ class AppEditorState extends State<AppEditor> {
 
   @override
   Widget build(BuildContext context) {
-    return Consumer(
-      builder: (context,ref,child) {
-        return Stack(
-          children: [
-            Column(
-              children: [
-                Expanded(
-                  child: _buildEditor(),
-                ),
-                if (_isMobile) _buildMountedToolbar(),
-              ],
-            ),
-            Align(
-              alignment: Alignment.bottomRight,
-              child: _buildLightAndDarkModeToggle(),
-            ),
-          ],
-        );
-      }
-    );
+    return Consumer(builder: (context, ref, child) {
+      return Stack(
+        children: [
+          Column(
+            children: [
+              Expanded(
+                child: _buildEditor(),
+              ),
+              if (_isMobile) _buildMountedToolbar(),
+            ],
+          ),
+          Align(
+            alignment: Alignment.bottomRight,
+            child: _buildLightAndDarkModeToggle(),
+          ),
+        ],
+      );
+    });
   }
 
   Widget _buildLightAndDarkModeToggle() {
@@ -323,11 +331,11 @@ class AppEditorState extends State<AppEditor> {
         },
         child: _isLight
             ? const Icon(
-          Icons.dark_mode,
-        )
+                Icons.dark_mode,
+              )
             : const Icon(
-          Icons.light_mode,
-        ),
+                Icons.light_mode,
+              ),
       ),
     );
   }
@@ -353,7 +361,17 @@ class AppEditorState extends State<AppEditor> {
         ],
         gestureMode: _gestureMode,
         inputSource: _inputSource,
-        keyboardActions: _inputSource == DocumentInputSource.ime ? defaultImeKeyboardActions : defaultKeyboardActions,
+        keyboardActions: _inputSource == DocumentInputSource.ime
+            ? defaultImeKeyboardActions
+            : [
+                ...defaultKeyboardActions,
+                ({
+                  required EditContext editContext,
+                  required RawKeyEvent keyEvent,
+                }) {
+                  return ExecutionInstruction.continueExecution;
+                }
+              ],
         androidToolbarBuilder: (_) => AndroidTextEditingFloatingToolbar(
           onCutPressed: _cut,
           onCopyPressed: _copy,
@@ -396,7 +414,7 @@ class AppEditorState extends State<AppEditor> {
 final _darkModeStyles = [
   StyleRule(
     BlockSelector.all,
-        (doc, docNode) {
+    (doc, docNode) {
       return {
         "textStyle": const TextStyle(
           color: Color(0xFFCCCCCC),
@@ -406,7 +424,7 @@ final _darkModeStyles = [
   ),
   StyleRule(
     const BlockSelector("header1"),
-        (doc, docNode) {
+    (doc, docNode) {
       return {
         "textStyle": const TextStyle(
           color: Color(0xFF888888),
@@ -416,7 +434,7 @@ final _darkModeStyles = [
   ),
   StyleRule(
     const BlockSelector("header2"),
-        (doc, docNode) {
+    (doc, docNode) {
       return {
         "textStyle": const TextStyle(
           color: Color(0xFF888888),
