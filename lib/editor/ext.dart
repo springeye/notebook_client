@@ -1,3 +1,6 @@
+import 'dart:convert';
+
+import 'package:notebook/logging.dart';
 import 'package:super_editor/super_editor.dart';
 
 import '_task.dart';
@@ -10,16 +13,20 @@ extension DocumenToJson on Document{
     }
     return results;
   }
+  static Document fromJson(List<Map<String,dynamic>> json){
+    List<DocumentNode>  nodes=json.map((Map<String, dynamic> e) => NodeToJson.fromJson(e)).toList();
+    return MutableDocument(nodes: nodes);
+  }
 }
 extension NodeToJson on DocumentNode{
   Map<String,dynamic> toJson(){
     Map<String,dynamic> json= {};
     DocumentNode node = this;
+    Map<String,dynamic>  params = {};
+    params['id']=node.id;
     if(node is ImageNode){
-      Map<String,String>  params = {};
       params['alt']=node.altText;
       params['image_url']=node.imageUrl;
-
 
       json['node_type']="image";
       json['attrs']=params;
@@ -27,7 +34,7 @@ extension NodeToJson on DocumentNode{
     }else if(node is HorizontalRuleNode){
 
     }else if(node is ListItemNode){
-      Map<String,dynamic>  params = {};
+
       params['type']=node.type.name;
       params['indent']=node.indent;
       params['text']=node.text.toJson();
@@ -35,13 +42,11 @@ extension NodeToJson on DocumentNode{
       json['attrs']=params;
     }else if(node is ParagraphNode){
       final Attribution? blockType = node.getMetadataValue('blockType');
-      Map<String,dynamic>  params = {};
       params['blockType']=blockType?.id;
       params['text']=node.text.toJson();
       json['node_type']="paragraph";
       json['attrs']=params;
     }else if(node is TaskNode){
-      Map<String,dynamic>  params = {};
       params['isComplete']=node.isComplete;
       params['text']=node.text.toJson();
       json['node_type']="task";
@@ -50,18 +55,55 @@ extension NodeToJson on DocumentNode{
 
     return json;
   }
+
+  static DocumentNode fromJson(element) {
+    print(jsonEncode(element));
+    var node_type=element['node_type'];
+    var attrs=element['attrs'];
+    if(node_type=="paragraph"){
+      var id=attrs['id'];
+      var text=attrs['text'];
+      ParagraphNode node=ParagraphNode(id: id,text: AttrubiteTextToText.fromJson(text));
+      // String blockType=element['blockType'];
+      // if(blockType!=null) {
+      //   node.putMetadataValue("blockType", const NamedAttribution(blockType));
+      // }
+      return node;
+    }
+    throw Exception("node error type: ${node_type}");
+  }
 }
 extension AttrubiteTextToText on AttributedText{
   Map<String,dynamic> toJson(){
     Map<String,dynamic>  params = {};
     params['text']=text;
-    params['spans']=spans.toJson();
+    List<Map<String,dynamic>> attrs=[];
+    visitAttributions((AttributedText fullText, int index, Set<Attribution> attributions, AttributionVisitEvent event) {
+      for (Attribution element in attributions) {
+        Map<String,dynamic> attr={};
+        attr['mark_type']=event.name;
+        attr['mark_offset']=index;
+        if(element is NamedAttribution){
+          attr['type']="named";
+          attr['name']=element.name;
+
+        }else if(element is LinkAttribution){
+          attr['type']="link";
+          attr['url']=element.url;
+        }
+        attrs.add(attr);
+      }
+
+      params['attrs']=attrs;
+    });
+    appLog.fine("params=====> ${json.encode(params)}\n\n");
+
+
     return params;
   }
-}
-extension AttributedSpansToText on AttributedSpans{
-  Map<String,dynamic> toJson(){
-    Map<String,dynamic>  params = {};
-    return params;
+
+  static AttributedText fromJson(Map<String,dynamic> params) {
+      var attText = AttributedText(text: params['text']);
+      return attText;
   }
 }
