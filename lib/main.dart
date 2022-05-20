@@ -54,7 +54,7 @@ class Bootstrap extends StatelessWidget {
       localizationsDelegates: localizationsDelegates,
       supportedLocales: S.supportedLocales,
       locale: locale,
-      home: isMobile ? MobileApplication() : const EditorTestWidget(),
+      home: isMobile ? MobileApplication() : const DesktopApplication(),
       builder: (BuildContext context, Widget? child) {
         child = easyload(context, child);
         return child;
@@ -69,66 +69,7 @@ void main() {
   launchApp();
 }
 
-class EditorTestWidget extends StatefulWidget {
-  const EditorTestWidget({Key? key}) : super(key: key);
 
-  @override
-  State<EditorTestWidget> createState() => _EditorTestWidgetState();
-}
-
-class _EditorTestWidgetState extends State<EditorTestWidget> {
-  String json = "[]";
-
-  @override
-  Widget build(BuildContext context) {
-    Document initialDocument = createInitialDocument();
-    var documentEditor = DocumentEditor(document: initialDocument as MutableDocument);
-    return Column(
-      children: [
-        Expanded(
-          child: SuperEditor(
-            componentBuilders: [
-              ...defaultComponentBuilders,
-              TaskComponentBuilder(documentEditor),
-            ],
-            keyboardActions: [
-              ...defaultKeyboardActions,
-              ({
-                required EditContext editContext,
-                required RawKeyEvent keyEvent,
-              }) {
-                if (keyEvent.isPrimaryShortcutKeyPressed &&
-                    keyEvent.logicalKey == LogicalKeyboardKey.keyS) {
-                  setState(() {
-                    json = initialDocument.toJson();
-                  });
-                  return ExecutionInstruction.haltExecution;
-                }
-                return ExecutionInstruction.continueExecution;
-              }
-            ],
-            editor: documentEditor,
-          ),
-        ),
-        Expanded(
-            child: SuperEditor(
-          componentBuilders: [
-            ...defaultComponentBuilders,
-            TaskComponentBuilder(documentEditor),
-          ],
-          editor: DocumentEditor(
-              document: DocumenToJson.fromJson(json) as MutableDocument),
-        ))
-      ],
-    );
-  }
-}
-
-extension PrimaryShortcutKey on RawKeyEvent {
-  bool get isPrimaryShortcutKeyPressed =>
-      (Platform.isMacOS && isMetaPressed) ||
-      (!Platform.isMacOS && isControlPressed);
-}
 
 void launchApp() async {
   String dbPath = await databaseFactoryFfi.getDatabasesPath();

@@ -1,5 +1,7 @@
 import 'dart:convert';
+import 'dart:io';
 
+import 'package:flutter/services.dart';
 import 'package:notebook/logging.dart';
 import 'package:super_editor/super_editor.dart';
 
@@ -141,4 +143,9 @@ extension AttrubiteTextToText on AttributedText{
       }
       return attText;
   }
+}
+extension PrimaryShortcutKey on RawKeyEvent {
+  bool get isPrimaryShortcutKeyPressed =>
+      (Platform.isMacOS && isMetaPressed) ||
+          (!Platform.isMacOS && isControlPressed);
 }
