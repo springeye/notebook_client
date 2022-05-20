@@ -92,6 +92,13 @@ class NoteListControl extends StateNotifier<List<Note>> {
     }
     store.close();
   }
+
+  Future<void> clear() async {
+    Store store = await openStore(macosApplicationGroup: "com.github.springeye");
+    Box<Note> box = store.box<Note>();
+    box.removeAll();
+    store.close();
+  }
 }
 class Filter{
   OrderType orderType=OrderType.Created;

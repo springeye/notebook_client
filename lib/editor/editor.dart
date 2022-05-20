@@ -1,12 +1,15 @@
+import 'dart:ffi';
+
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:notebook/editor/_document.dart';
-import 'package:super_editor/super_editor.dart';
+import 'package:super_editor/super_editor.dart' hide defaultStylesheet;
 
 import '../logging.dart';
 import '_task.dart';
 import '_toolbar.dart';
+import 'stylesheet.dart';
 
 /// Example of a rich text editor.
 ///
@@ -24,7 +27,7 @@ class AppEditorState extends State<AppEditor> {
   final GlobalKey _docLayoutKey = GlobalKey();
 
   late Document doc;
-  late DocumentEditor _docEditor;
+  late DocumentEditor docEditor;
   late DocumentComposer _composer;
   late CommonEditorOperations docOps;
 
@@ -49,10 +52,10 @@ class AppEditorState extends State<AppEditor> {
     super.initState();
     doc=createInitialDocument();
     doc .addListener(_hideOrShowToolbar);
-    _docEditor = DocumentEditor(document: doc as MutableDocument);
+    docEditor = DocumentEditor(document: doc as MutableDocument);
     _composer = DocumentComposer()..addListener(_hideOrShowToolbar);
     docOps = CommonEditorOperations(
-      editor: _docEditor,
+      editor: docEditor,
       composer: _composer,
       documentLayoutResolver: () =>
           _docLayoutKey.currentState as DocumentLayout,
@@ -140,7 +143,7 @@ class AppEditorState extends State<AppEditor> {
       _textFormatBarOverlayEntry ??= OverlayEntry(builder: (context) {
         return EditorToolbar(
           anchor: _textSelectionAnchor,
-          editor: _docEditor,
+          editor: docEditor,
           composer: _composer,
           closeToolbar: _hideEditorToolbar,
         );
@@ -348,12 +351,13 @@ class AppEditorState extends State<AppEditor> {
     return ColoredBox(
       color: _isLight ? _lightBackground : _darkBackground,
       child: SuperEditor(
-        editor: _docEditor,
+        editor: docEditor,
         composer: _composer,
         focusNode: _editorFocusNode,
         scrollController: _scrollController,
         documentLayoutKey: _docLayoutKey,
         stylesheet: defaultStylesheet.copyWith(
+          // rules: [],
           addRulesAfter: [
             if (!_isLight) ..._darkModeStyles,
             taskStyles,
@@ -361,7 +365,7 @@ class AppEditorState extends State<AppEditor> {
         ),
         componentBuilders: [
           ...defaultComponentBuilders,
-          TaskComponentBuilder(_docEditor),
+          TaskComponentBuilder(docEditor),
         ],
         gestureMode: _gestureMode,
         inputSource: _inputSource,

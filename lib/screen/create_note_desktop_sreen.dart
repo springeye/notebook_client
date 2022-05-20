@@ -33,94 +33,60 @@ class CreateNoteDesktopScreen extends StatefulWidget {
 }
 
 class _CreateNoteState extends State<CreateNoteDesktopScreen> {
-  String get title => titleController.text;
   final GlobalKey<AppEditorState> editorKey = GlobalKey<AppEditorState>();
   String get content => "";
-  late TextEditingController titleController;
-
+  TextEditingController titleController=TextEditingController();
   @override
   void initState() {
-    titleController = TextEditingController();
     super.initState();
   }
-
-  Note? note;
-  save(BuildContext context, WidgetRef ref) {
-    appLog.fine("保存文档");
-    Document? doc=editorKey.currentState?.doc;
-    if(doc==null)return;
-    String newContent = json.encode(doc.toJson());
-    appLog.fine(newContent);
-    // String newTitle = titleController.text;
-    // if (note != null) {
-    //   if (newTitle != note!.title || newContent != note!.content) {
-    //     note!.title = newTitle;
-    //     note!.content = newContent;
-    //     ref.read(noteListProvider.notifier).update(note!);
-    //   }
-    // }
+  @override
+  void dispose(){
+    titleController.dispose();
+    super.dispose();
   }
-
+  Note? note;
   @override
   Widget build(BuildContext context) {
     return Consumer(
         builder: (BuildContext context, WidgetRef ref, Widget? widget) {
       Note? showNote = ref.watch(showDetailProvider);
-      titleController.value = TextEditingValue(text: showNote?.title ?? "");
        String? content = showNote?.content;
-       content ??= "111";
-       editorKey.currentState?.docOps.insertPlainText(content);
-       AppEditor baseEditor = AppEditor(key: editorKey);
+
+      Document? doc = editorKey.currentState?.doc;
+      if(doc!=null && showNote!=null && showNote.uuid!=note?.uuid) {
+        MutableDocument mudoc = (doc as MutableDocument);
+        mudoc.nodes.clear();
+        mudoc.insertNodeAt(0, ParagraphNode(id: DocumentEditor.createNodeId(),
+            text: AttributedText(text: content??"")));
+        if(note!=null){
+          note!.title=titleController.text;
+          note!.content=doc.toJson();
+          appLog.fine("=======> ${note!.content}");
+          
+          ref.read(noteListProvider.notifier).update(note!).then((value) {
+            note=showNote;
+            titleController.text=showNote?.title??"";
+          });
+        }else{
+          note=showNote;
+          titleController.text=showNote?.title??"";
+        }
+
+
+      }
       return Scaffold(
-        body: MouseRegion(
-          onHover: (PointerHoverEvent event) {
-            // print("onHover");
-          },
-          onEnter: (PointerEnterEvent event) {
-            // print("onEnter");
-          },
-          onExit: (PointerExitEvent event) {
-            save(context, ref);
-          },
-          /**
-               * 快捷键处理
-               */
-          child: Shortcuts(
-            shortcuts: <LogicalKeySet, Intent>{
-              LogicalKeySet(
-                      LogicalKeyboardKey.control, LogicalKeyboardKey.keyS):
-                  SaveIntent()
-            },
-            child: Actions(
-              actions: <Type, Action<Intent>>{
-                SaveIntent: CallbackAction<SaveIntent>(onInvoke: (SaveIntent intent) {
-                  save(context, ref);
-                })
-              },
-              child: Container(
-                padding: EdgeInsets.symmetric(horizontal: 20),
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.start,
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    TextField(
-                      controller: titleController,
-                      style:
-                          TextStyle(fontWeight: FontWeight.bold, fontSize: 18),
-                      decoration: InputDecoration(
-                          hintText: S.of(context)!.hint_title,
-                          contentPadding: EdgeInsets.all(5)),
-                    ),
-                    Expanded(
-                      child: Container(
-                        color: Colors.green,
-                        child: baseEditor,
-                      ),
-                    )
-                  ],
-                ),
-              ),
-            ),
+        body: Container(
+          padding: const EdgeInsets.symmetric(horizontal: 20),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.start,
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              TextField(controller: titleController),
+              Expanded(
+                child: AppEditor(key: editorKey),
+              )
+            ],
           ),
         ),
       );

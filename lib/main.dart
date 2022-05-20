@@ -12,6 +12,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:logging/logging.dart';
 import 'package:notebook/datastore/app_data_store.dart';
 import 'package:notebook/logging.dart' as logging;
+import 'package:notebook/logic/note.dart';
 import 'package:notebook/platform/desktop_application.dart';
 import 'package:notebook/platform/mobile_application.dart';
 import 'package:path/path.dart';
@@ -90,6 +91,7 @@ void launchApp() async {
         ref.read(i10n.notifier).setLocale(Locale.fromSubtags(languageCode: value));
       }
     });
+    ref.read(noteListProvider.notifier).clear();
     return Bootstrap(watch);
   })));
   if (!isMobile) {
