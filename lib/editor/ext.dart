@@ -122,24 +122,28 @@ extension AttrubiteTextToText on AttributedText{
 
   static AttributedText fromJson(Map<String,dynamic> params) {
       AttributedText attText = AttributedText(text: params['text']);
-      List<Map<String, dynamic>> attrs=(params['attrs'] as List<dynamic>).cast<Map<String,dynamic>>();
-      int start=-1;
-      int end=-1;
-      for (Map<String, dynamic> value in attrs) {
-        String name = value['name'];
-        int offset = value['mark_offset'];
-        String event = value['event'];
-        if(event==AttributionVisitEvent.start.name){
-          start=offset;
-        }else if(event==AttributionVisitEvent.end.name) {
-          end = offset;
+      var _attrs = params['attrs'];
+      if(_attrs!=null) {
+        List<Map<String, dynamic>> attrs = (_attrs as List<dynamic>).cast<
+            Map<String, dynamic>>();
+        int start = -1;
+        int end = -1;
+        for (Map<String, dynamic> value in attrs) {
+          String name = value['name'];
+          int offset = value['mark_offset'];
+          String event = value['event'];
+          if (event == AttributionVisitEvent.start.name) {
+            start = offset;
+          } else if (event == AttributionVisitEvent.end.name) {
+            end = offset;
+          }
+          if (start != -1 && end != -1) {
+            attText.addAttribution(
+                NamedAttribution(name), SpanRange(start: start, end: end));
+            start = -1;
+            end = -1;
+          }
         }
-        if(start!=-1 && end!=-1){
-          attText.addAttribution(NamedAttribution(name), SpanRange(start: start, end: end));
-          start=-1;
-          end=-1;
-        }
-
       }
       return attText;
   }

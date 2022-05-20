@@ -9,10 +9,12 @@ import 'package:intl/intl.dart';
 import 'package:notebook/database/entity/note.dart';
 import 'package:notebook/database/entity/notebook.dart';
 import 'package:notebook/datastore/app_data_store.dart';
+import 'package:notebook/editor/ext.dart';
 import 'package:notebook/logic/i10n.dart';
 import 'package:notebook/logic/note.dart';
 import 'package:notebook/logic/notebook.dart';
 import 'package:notebook/model/order_type.dart';
+import 'package:super_editor/super_editor.dart';
 
 import 'base_screen.dart';
 import 'create_note_desktop_sreen.dart';
@@ -201,7 +203,7 @@ class _HomeScreenState extends BaseScreen<HomeDesktopScreen> {
       child: ElevatedButton.icon(
         icon: const Icon(Icons.add),
         onPressed: () async {
-          noteControl.create(S.of(context)!.title_unnamed, json.encode("aaaa"));
+          noteControl.create(S.of(context)!.title_unnamed, "");
           noteControl.load();
         },
         label: Text(S.of(context)!.create_note),

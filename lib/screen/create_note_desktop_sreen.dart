@@ -57,8 +57,19 @@ class _CreateNoteState extends State<CreateNoteDesktopScreen> {
       if(doc!=null && showNote!=null && showNote.uuid!=note?.uuid) {
         MutableDocument mudoc = (doc as MutableDocument);
         mudoc.nodes.clear();
-        mudoc.insertNodeAt(0, ParagraphNode(id: DocumentEditor.createNodeId(),
-            text: AttributedText(text: content??"")));
+        if(content!=null && content.isNotEmpty){
+          appLog.fine("content==>$content");
+          List<DocumentNode> nodes=DocumenToJson.fromJson(content).nodes;
+          for (DocumentNode element in nodes) {
+            mudoc.insertNodeAt(mudoc.nodes.length, element);
+          }
+        }else{
+
+          mudoc.insertNodeAt(0, ParagraphNode(id: DocumentEditor.createNodeId(),
+              text: AttributedText(text:"")));
+        }
+
+
         if(note!=null){
           note!.title=titleController.text;
           note!.content=doc.toJson();
