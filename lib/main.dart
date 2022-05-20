@@ -84,8 +84,9 @@ void launchApp() async {
   String readUserToken = await store.getString("user_token") ?? "";
 
   runApp(ProviderScope(child: Consumer(builder: (context, ref, child) {
-    ref.read(i10n.notifier).storeLocale().then((value) => {});
-    return Bootstrap(ref.watch(i10n));
+    ref.read(i10n.notifier).storeLocale();
+    var watch = ref.watch(i10n);
+    return Bootstrap(watch);
   })));
   if (!isMobile) {
     doWhenWindowReady(() {

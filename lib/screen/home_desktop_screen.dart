@@ -462,7 +462,6 @@ class _HomeScreenState extends BaseScreen<HomeDesktopScreen> {
 
     return Consumer(
       builder: ( BuildContext context, WidgetRef ref, Widget? child) {
-        checkLocale(context,ref);
         return Scaffold(
           body: Row(
             children: [
@@ -502,10 +501,4 @@ class _HomeScreenState extends BaseScreen<HomeDesktopScreen> {
     );
   }
 
-  /// 检查本地报错的语言
-  void checkLocale(BuildContext context, WidgetRef ref, ) async {
-    String? l = await AppDataStore.of().getString("locale");
-    Locale locale = Locale.fromSubtags(languageCode: l ?? "en");
-    ref.read(i10n.notifier).setLocale(locale);
-  }
 }
