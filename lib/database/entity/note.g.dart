@@ -8,17 +8,19 @@ part of 'note.dart';
 
 Note _$NoteFromJson(Map<String, dynamic> json) => Note(
       json['uuid'] as String,
-      json['notebook_id'] as String?,
       json['title'] as String,
       json['content'] as String,
       DateTime.parse(json['created_time'] as String),
       DateTime.parse(json['updated_time'] as String),
-      json['deleted'] as bool,
-      json['encrypted'] as String,
-      json['synced'] as bool,
-    );
+    )
+      ..id = json['id'] as int
+      ..notebookId = json['notebook_id'] as String?
+      ..deleted = json['deleted'] as bool
+      ..encrypted = json['encrypted'] as String
+      ..synced = json['synced'] as bool;
 
 Map<String, dynamic> _$NoteToJson(Note instance) => <String, dynamic>{
+      'id': instance.id,
       'uuid': instance.uuid,
       'notebook_id': instance.notebookId,
       'title': instance.title,

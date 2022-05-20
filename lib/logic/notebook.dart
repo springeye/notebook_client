@@ -1,12 +1,8 @@
-import 'dart:io';
-
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:notebook/database/dao/notebook_dao.dart';
-import 'package:notebook/database/database.dart';
-import 'package:notebook/database/entity/note.dart';
 import 'package:notebook/database/entity/notebook.dart';
 import 'package:uuid/uuid.dart';
-import '../model/order_type.dart';
+
+import '../objectbox.g.dart';
 class NotebookControl extends StateNotifier<List<NoteBook>> {
   NotebookControl() : super([]);
   void load(){
@@ -15,20 +11,30 @@ class NotebookControl extends StateNotifier<List<NoteBook>> {
     });
   }
   Future<List<NoteBook>> _load() async {
-    final AppDatabase database =
-        await $FloorAppDatabase.databaseBuilder('app_database.db').build();
-    NotebookDao dao = database.notebookDao;
-    List<NoteBook> notebooks = await dao.findAll();
+    Store store = await openStore(macosApplicationGroup: "com.github.springeye");
+    Box<NoteBook> box = store.box<NoteBook>();
+    List<NoteBook> notebooks=box.getAll();
     if (notebooks.isEmpty) {
       Uuid uuid = const Uuid();
-      await dao.insert(NoteBook(uuid.v4(),"", "test1"));
-      notebooks = await dao.findAll();
+      var noteBook = NoteBook(uuid.v4(),"test1", DateTime.now(),DateTime.now());
+      box.put(noteBook,mode: PutMode.insert);
+      notebooks.add(noteBook);
     }
+    store.close();
     return notebooks;
 
   }
-  void create(String name,NoteBook? parent){
-
+  Future<NoteBook> create(String name,NoteBook? parent) async {
+    Store store = await openStore(macosApplicationGroup: "com.github.springeye");
+    Box<NoteBook> box = store.box<NoteBook>();
+      Uuid uuid = const Uuid();
+      var noteBook = NoteBook(uuid.v4(),name, DateTime.now(),DateTime.now());
+      if(parent!=null){
+        noteBook.pid=parent.uuid;
+      }
+      box.put(noteBook,mode: PutMode.insert);
+      store.close();
+      return noteBook;
   }
 
 }

@@ -31,7 +31,6 @@ dependencies:
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^1.0.2
-  floor: ^1.2.0
   retrofit: ^3.0.1+1
   shared_preferences: ^2.0.6
   rxdart: ^0.27.1
@@ -40,7 +39,6 @@ dependencies:
   pretty_dio_logger: ^1.1.1
   flutter_easyloading: ^3.0.0
   intl: ^0.17.0
-  sqflite: ^2.0.0+3
   #  objectdb: ^1.2.1+1
   bitsdojo_window: ^0.1.1+1
   file_picker: ^4.1.1
@@ -52,17 +50,19 @@ dependencies:
   get_it: ^7.2.0
   super_editor: ^0.2.0
   flutter_riverpod: ^1.0.4
-
+  objectbox: ^1.5.0
+  objectbox_flutter_libs: ^1.5.0
+  sqflite_common_ffi: ^2.1.1
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
   build_runner: ^2.0.5
   build_verify: ^3.0.0
-  floor_generator: ^1.2.0
   json_serializable: ^6.2.0
   retrofit_generator: ^3.0.1+1
   msix: ^3.6.2
+  objectbox_generator: ^1.5.0
 msix_config:
   display_name: JNotebook
   publisher_display_name: henjue

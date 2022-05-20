@@ -1,24 +1,28 @@
-import 'package:floor/floor.dart';
 import 'package:json_annotation/json_annotation.dart';
+import 'package:objectbox/objectbox.dart';
 
 part 'note.g.dart';
-
 @JsonSerializable(fieldRename: FieldRename.snake)
 @Entity()
 class Note {
-  @PrimaryKey()
+  int id=0;
   final String uuid;
   String? notebookId;
-  String title;
-  String content;
-  DateTime createdTime = DateTime.now();
-  DateTime updatedTime = DateTime.now();
+   String title;
+   String content;
+  @Property(type: PropertyType.dateNano)
+  final DateTime createdTime;
+  @Property(type: PropertyType.dateNano)
+   DateTime updatedTime;
   bool deleted = false;
-  String encrypted;
-  bool synced;
-  Note(this.uuid, this.notebookId, this.title, this.content, this.createdTime,
-      this.updatedTime, this.deleted,this.encrypted,this.synced);
-  static Note newEmpty(){
-      return Note("","","","",DateTime.now(),DateTime.now(),false,"",false);
-  }
+  late String encrypted;
+  bool synced=false;
+
+  Note(this.uuid,this.title, this.content, this.createdTime, this.updatedTime);
+
+
+
+
+
+
 }

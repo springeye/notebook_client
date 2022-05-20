@@ -1,0 +1,160 @@
+{
+  "_note1": "KEEP THIS FILE! Check it into a version control system (VCS) like git.",
+  "_note2": "ObjectBox manages crucial IDs for your object model. See docs for details.",
+  "_note3": "If you have VCS merge conflicts, you must resolve them according to ObjectBox docs.",
+  "entities": [
+    {
+      "id": "1:2316079523711971685",
+      "lastPropertyId": "10:7303132356753889275",
+      "name": "Note",
+      "properties": [
+        {
+          "id": "1:8080678384166238745",
+          "name": "id",
+          "type": 6,
+          "flags": 1
+        },
+        {
+          "id": "2:7098960471466229012",
+          "name": "uuid",
+          "type": 9
+        },
+        {
+          "id": "3:4262212420943084956",
+          "name": "notebookId",
+          "type": 9
+        },
+        {
+          "id": "4:6928125577199823912",
+          "name": "title",
+          "type": 9
+        },
+        {
+          "id": "5:8420037946000345695",
+          "name": "content",
+          "type": 9
+        },
+        {
+          "id": "6:5779439842405884447",
+          "name": "createdTime",
+          "type": 12
+        },
+        {
+          "id": "7:7152875301481954586",
+          "name": "updatedTime",
+          "type": 12
+        },
+        {
+          "id": "8:1165543312835010593",
+          "name": "deleted",
+          "type": 1
+        },
+        {
+          "id": "9:713178703130774028",
+          "name": "encrypted",
+          "type": 9
+        },
+        {
+          "id": "10:7303132356753889275",
+          "name": "synced",
+          "type": 1
+        }
+      ],
+      "relations": []
+    },
+    {
+      "id": "2:1603758049977200031",
+      "lastPropertyId": "7:5808698125903124583",
+      "name": "NoteBook",
+      "properties": [
+        {
+          "id": "1:9021676285066536248",
+          "name": "id",
+          "type": 6,
+          "flags": 1
+        },
+        {
+          "id": "2:1641153853661923438",
+          "name": "uuid",
+          "type": 9
+        },
+        {
+          "id": "3:136765507824177696",
+          "name": "pid",
+          "type": 9
+        },
+        {
+          "id": "4:8713373020954039050",
+          "name": "title",
+          "type": 9
+        },
+        {
+          "id": "5:6251790359403917076",
+          "name": "createdTime",
+          "type": 12
+        },
+        {
+          "id": "6:2424751303386619442",
+          "name": "updatedTime",
+          "type": 12
+        },
+        {
+          "id": "7:5808698125903124583",
+          "name": "deleted",
+          "type": 1
+        }
+      ],
+      "relations": []
+    },
+    {
+      "id": "3:9179414022122330500",
+      "lastPropertyId": "6:1137877032221080913",
+      "name": "Tag",
+      "properties": [
+        {
+          "id": "1:2968144532248398034",
+          "name": "id",
+          "type": 6,
+          "flags": 1
+        },
+        {
+          "id": "2:8747076394469313137",
+          "name": "uuid",
+          "type": 9
+        },
+        {
+          "id": "3:5156137234548363361",
+          "name": "text",
+          "type": 9
+        },
+        {
+          "id": "4:4082479014541581719",
+          "name": "createdTime",
+          "type": 12
+        },
+        {
+          "id": "5:6245822570672081958",
+          "name": "updatedTime",
+          "type": 12
+        },
+        {
+          "id": "6:1137877032221080913",
+          "name": "noteId",
+          "type": 9
+        }
+      ],
+      "relations": []
+    }
+  ],
+  "lastEntityId": "3:9179414022122330500",
+  "lastIndexId": "0:0",
+  "lastRelationId": "0:0",
+  "lastSequenceId": "0:0",
+  "modelVersion": 5,
+  "modelVersionParserMinimum": 5,
+  "retiredEntityUids": [],
+  "retiredIndexUids": [],
+  "retiredPropertyUids": [],
+  "retiredRelationUids": [],
+  "version": 1
+}

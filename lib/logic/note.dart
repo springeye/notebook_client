@@ -1,12 +1,13 @@
+import 'dart:async';
 import 'dart:io';
 
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:notebook/database/dao/note_dao.dart';
 import 'package:notebook/database/database.dart';
 import 'package:notebook/database/entity/note.dart';
 import 'package:notebook/utils/utils.dart';
 import 'package:uuid/uuid.dart';
 import '../model/order_type.dart';
+import '../objectbox.g.dart';
 class ShowDetailNote extends StateNotifier<Note?> {
   ShowDetailNote() : super(null);
   void show(Note? node) {
@@ -50,39 +51,46 @@ class SelectNoteList extends StateNotifier<List<String>> {
 class NoteListControl extends StateNotifier<List<Note>> {
   NoteListControl() : super([]);
   Future<void> load() async {
-    final AppDatabase database =
-        await $FloorAppDatabase.databaseBuilder('app_database.db').build();
-    final NoteDao noteDao = database.noteDao;
-    List<Note> notes = await noteDao.findAllOrderCreatedTime();
-    state=notes;
+    Store store = await openStore(macosApplicationGroup: "com.github.springeye");
+    state=store.box<Note>().getAll();
+    store.close();
   }
 
-  Future<void> create(String title,String content) async {
-    final AppDatabase database =
-        await $FloorAppDatabase.databaseBuilder('app_database.db').build();
+  Future<Note> create(String title,String content)  async {
     Uuid uuid = const Uuid();
-    final NoteDao noteDao = database.noteDao;
-    Note note = Note(uuid.v4(), "", title, content, DateTime.now(),
-        DateTime.now(), false,"",false);
+    Note note = Note(uuid.v4(),title, content,DateTime.now(),DateTime.now());
     note.encrypted=note.toMD5();
-    await noteDao.insert(note);
-
+    Store store = await openStore(macosApplicationGroup: "com.github.springeye");
+    store.box<Note>().put(note);
+    store.close();
+    return note;
   }
 
   Future<void> delete(List<String> ids) async {
-    final AppDatabase database =
-        await $FloorAppDatabase.databaseBuilder('app_database.db').build();
-    final NoteDao noteDao = database.noteDao;
-    noteDao.deletes(ids);
+    Store store = await openStore(macosApplicationGroup: "com.github.springeye");
+    Box<Note> box = store.box<Note>();
+    List<Note> notes=box.query(Note_.uuid.oneOf(ids)).build().find();
+    for (Note element in notes) {
+      element.deleted=true;
+      element.synced=false;
+    }
+    box.putMany(notes,mode: PutMode.update);
+    store.close();
+
   }
-  Future<void> update(Note note) async {
-    final AppDatabase database =
-        await $FloorAppDatabase.databaseBuilder('app_database.db').build();
-    final NoteDao noteDao = database.noteDao;
-    note.updatedTime = DateTime.now();
-    note.synced=false;
-    note.encrypted=note.toMD5();
-    await noteDao.update(note);
+  Future<void> update(Note newNote) async {
+    Store store = await openStore(macosApplicationGroup: "com.github.springeye");
+    Box<Note> box = store.box<Note>();
+    Note? note=box.query(Note_.uuid.equals(newNote.uuid)).build().findFirst();
+    if(note!=null){
+      if(newNote.title!=note.title)note.title=newNote.title;
+      if(newNote.content!=note.content)note.content=newNote.content;
+      if(newNote.notebookId!=note.notebookId)note.notebookId=newNote.notebookId;
+      note.updatedTime=DateTime.now();
+      note.synced=false;
+      box.put(note,mode: PutMode.update);
+    }
+    store.close();
   }
 }
 class Filter{
@@ -108,11 +116,11 @@ final Provider<List<Note>> filterdNoteListProvider = Provider((ProviderRef<List<
     nodes=nodes.where((Note element) => element.title.contains(keywork)|| element.content.contains(keywork)).toList();
   }
   if(type==OrderType.Created){
-    nodes.sort((p,c){
+    nodes.sort((Note p,Note c){
       return p.createdTime.compareTo(c.createdTime);
     });
   }else{
-    nodes.sort((p,c){
+    nodes.sort((Note p,Note c){
       return p.updatedTime.compareTo(c.updatedTime);
     });
   }

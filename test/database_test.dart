@@ -1,22 +1,21 @@
 import 'package:flutter_test/flutter_test.dart';
 import 'package:notebook/database/database.dart';
+import 'package:notebook/database/entity/note.dart';
+import 'package:uuid/uuid.dart';
 
 void main() {
   setUp(() async {});
 
   tearDown(() async {});
   group("Database Tests", () {
-    test("Test Query", () async {
-      // final database = await $FloorAppDatabase.databaseBuilder('app_database.db').build();
-      final database =
-          await $FloorAppDatabase.inMemoryDatabaseBuilder().build();
-
-      // final personDao = database.personDao;
-      // final person = Person(1, 'Frank');
-      //
-      // await personDao.insertPerson(person);
-      // final lists = await personDao.findAllPersons();
-      // assert(lists.isNotEmpty);
+    test("Test Create", () async {
+      print("111");
+      realm.write(() {
+        print("222");
+        realm.add(Note(Uuid().v4().toString(),"","",DateTime.now(),DateTime.now(),""));
+        print("333");
+      });
+      print("444");
     });
   });
 }

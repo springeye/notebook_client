@@ -5,324 +5,310 @@ packages:
     dependency: transitive
     description:
       name: _fe_analyzer_shared
-      url: "https://mirrors.cloud.tencent.com/dart-pub/"
+      url: "https://pub.flutter-io.cn"
     source: hosted
     version: "40.0.0"
   analyzer:
     dependency: "direct overridden"
     description:
       name: analyzer
-      url: "https://mirrors.cloud.tencent.com/dart-pub/"
+      url: "https://pub.flutter-io.cn"
     source: hosted
     version: "4.1.0"
   archive:
     dependency: transitive
     description:
       name: archive
-      url: "https://mirrors.cloud.tencent.com/dart-pub/"
+      url: "https://pub.flutter-io.cn"
     source: hosted
     version: "3.3.0"
   args:
     dependency: transitive
     description:
       name: args
-      url: "https://mirrors.cloud.tencent.com/dart-pub/"
+      url: "https://pub.flutter-io.cn"
     source: hosted
     version: "2.3.1"
   async:
     dependency: transitive
     description:
       name: async
-      url: "https://mirrors.cloud.tencent.com/dart-pub/"
+      url: "https://pub.flutter-io.cn"
     source: hosted
     version: "2.8.2"
   attributed_text:
     dependency: transitive
     description:
       name: attributed_text
-      url: "https://mirrors.cloud.tencent.com/dart-pub/"
+      url: "https://pub.flutter-io.cn"
     source: hosted
     version: "0.1.1"
   base32:
     dependency: transitive
     description:
       name: base32
-      url: "https://mirrors.cloud.tencent.com/dart-pub/"
+      url: "https://pub.flutter-io.cn"
     source: hosted
     version: "2.1.1"
   bitsdojo_window:
     dependency: "direct main"
     description:
       name: bitsdojo_window
-      url: "https://mirrors.cloud.tencent.com/dart-pub/"
+      url: "https://pub.flutter-io.cn"
     source: hosted
     version: "0.1.2"
   bitsdojo_window_linux:
     dependency: transitive
     description:
       name: bitsdojo_window_linux
-      url: "https://mirrors.cloud.tencent.com/dart-pub/"
+      url: "https://pub.flutter-io.cn"
     source: hosted
     version: "0.1.2"
   bitsdojo_window_macos:
     dependency: transitive
     description:
       name: bitsdojo_window_macos
-      url: "https://mirrors.cloud.tencent.com/dart-pub/"
+      url: "https://pub.flutter-io.cn"
     source: hosted
     version: "0.1.2"
   bitsdojo_window_platform_interface:
     dependency: transitive
     description:
       name: bitsdojo_window_platform_interface
-      url: "https://mirrors.cloud.tencent.com/dart-pub/"
+      url: "https://pub.flutter-io.cn"
     source: hosted
     version: "0.1.2"
   bitsdojo_window_windows:
     dependency: transitive
     description:
       name: bitsdojo_window_windows
-      url: "https://mirrors.cloud.tencent.com/dart-pub/"
+      url: "https://pub.flutter-io.cn"
     source: hosted
     version: "0.1.2"
   boolean_selector:
     dependency: transitive
     description:
       name: boolean_selector
-      url: "https://mirrors.cloud.tencent.com/dart-pub/"
+      url: "https://pub.flutter-io.cn"
     source: hosted
     version: "2.1.0"
   build:
     dependency: transitive
     description:
       name: build
-      url: "https://mirrors.cloud.tencent.com/dart-pub/"
+      url: "https://pub.flutter-io.cn"
     source: hosted
     version: "2.3.0"
   build_config:
     dependency: transitive
     description:
       name: build_config
-      url: "https://mirrors.cloud.tencent.com/dart-pub/"
+      url: "https://pub.flutter-io.cn"
     source: hosted
     version: "1.0.0"
   build_daemon:
     dependency: transitive
     description:
       name: build_daemon
-      url: "https://mirrors.cloud.tencent.com/dart-pub/"
+      url: "https://pub.flutter-io.cn"
     source: hosted
     version: "3.1.0"
   build_resolvers:
     dependency: transitive
     description:
       name: build_resolvers
-      url: "https://mirrors.cloud.tencent.com/dart-pub/"
+      url: "https://pub.flutter-io.cn"
     source: hosted
     version: "2.0.8"
   build_runner:
     dependency: "direct dev"
     description:
       name: build_runner
-      url: "https://mirrors.cloud.tencent.com/dart-pub/"
+      url: "https://pub.flutter-io.cn"
     source: hosted
     version: "2.1.11"
   build_runner_core:
     dependency: transitive
     description:
       name: build_runner_core
-      url: "https://mirrors.cloud.tencent.com/dart-pub/"
+      url: "https://pub.flutter-io.cn"
     source: hosted
     version: "7.2.3"
   build_verify:
     dependency: "direct dev"
     description:
       name: build_verify
-      url: "https://mirrors.cloud.tencent.com/dart-pub/"
+      url: "https://pub.flutter-io.cn"
     source: hosted
     version: "3.0.0"
   built_collection:
     dependency: transitive
     description:
       name: built_collection
-      url: "https://mirrors.cloud.tencent.com/dart-pub/"
+      url: "https://pub.flutter-io.cn"
     source: hosted
     version: "5.1.1"
   built_value:
     dependency: transitive
     description:
       name: built_value
-      url: "https://mirrors.cloud.tencent.com/dart-pub/"
+      url: "https://pub.flutter-io.cn"
     source: hosted
     version: "8.3.0"
   characters:
     dependency: transitive
     description:
       name: characters
-      url: "https://mirrors.cloud.tencent.com/dart-pub/"
+      url: "https://pub.flutter-io.cn"
     source: hosted
     version: "1.2.0"
   charcode:
     dependency: transitive
     description:
       name: charcode
-      url: "https://mirrors.cloud.tencent.com/dart-pub/"
+      url: "https://pub.flutter-io.cn"
     source: hosted
     version: "1.3.1"
   checked_yaml:
     dependency: transitive
     description:
       name: checked_yaml
-      url: "https://mirrors.cloud.tencent.com/dart-pub/"
+      url: "https://pub.flutter-io.cn"
     source: hosted
     version: "2.0.1"
   cli_dialog:
     dependency: transitive
     description:
       name: cli_dialog
-      url: "https://mirrors.cloud.tencent.com/dart-pub/"
+      url: "https://pub.flutter-io.cn"
     source: hosted
     version: "0.5.0"
   cli_util:
     dependency: transitive
     description:
       name: cli_util
-      url: "https://mirrors.cloud.tencent.com/dart-pub/"
+      url: "https://pub.flutter-io.cn"
     source: hosted
     version: "0.3.5"
   clock:
     dependency: transitive
     description:
       name: clock
-      url: "https://mirrors.cloud.tencent.com/dart-pub/"
+      url: "https://pub.flutter-io.cn"
     source: hosted
     version: "1.1.0"
   code_builder:
     dependency: transitive
     description:
       name: code_builder
-      url: "https://mirrors.cloud.tencent.com/dart-pub/"
+      url: "https://pub.flutter-io.cn"
     source: hosted
     version: "4.1.0"
   collection:
     dependency: transitive
     description:
       name: collection
-      url: "https://mirrors.cloud.tencent.com/dart-pub/"
+      url: "https://pub.flutter-io.cn"
     source: hosted
     version: "1.16.0"
   convert:
     dependency: transitive
     description:
       name: convert
-      url: "https://mirrors.cloud.tencent.com/dart-pub/"
+      url: "https://pub.flutter-io.cn"
     source: hosted
     version: "3.0.1"
   coverage:
     dependency: transitive
     description:
       name: coverage
-      url: "https://mirrors.cloud.tencent.com/dart-pub/"
+      url: "https://pub.flutter-io.cn"
     source: hosted
     version: "1.3.2"
   crypto:
     dependency: "direct main"
     description:
       name: crypto
-      url: "https://mirrors.cloud.tencent.com/dart-pub/"
+      url: "https://pub.flutter-io.cn"
     source: hosted
     version: "3.0.2"
   cupertino_icons:
     dependency: "direct main"
     description:
       name: cupertino_icons
-      url: "https://mirrors.cloud.tencent.com/dart-pub/"
+      url: "https://pub.flutter-io.cn"
     source: hosted
     version: "1.0.4"
   dart_console:
     dependency: transitive
     description:
       name: dart_console
-      url: "https://mirrors.cloud.tencent.com/dart-pub/"
+      url: "https://pub.flutter-io.cn"
     source: hosted
     version: "1.0.0"
   dart_style:
     dependency: transitive
     description:
       name: dart_style
-      url: "https://mirrors.cloud.tencent.com/dart-pub/"
+      url: "https://pub.flutter-io.cn"
     source: hosted
     version: "2.2.3"
   dio:
     dependency: "direct main"
     description:
       name: dio
-      url: "https://mirrors.cloud.tencent.com/dart-pub/"
+      url: "https://pub.flutter-io.cn"
     source: hosted
     version: "4.0.6"
   equatable:
     dependency: "direct main"
     description:
       name: equatable
-      url: "https://mirrors.cloud.tencent.com/dart-pub/"
+      url: "https://pub.flutter-io.cn"
     source: hosted
     version: "2.0.3"
   fake_async:
     dependency: transitive
     description:
       name: fake_async
-      url: "https://mirrors.cloud.tencent.com/dart-pub/"
+      url: "https://pub.flutter-io.cn"
     source: hosted
     version: "1.3.0"
   ffi:
     dependency: transitive
     description:
       name: ffi
-      url: "https://mirrors.cloud.tencent.com/dart-pub/"
+      url: "https://pub.flutter-io.cn"
     source: hosted
     version: "1.2.1"
   file:
     dependency: transitive
     description:
       name: file
-      url: "https://mirrors.cloud.tencent.com/dart-pub/"
+      url: "https://pub.flutter-io.cn"
     source: hosted
     version: "6.1.2"
   file_picker:
     dependency: "direct main"
     description:
       name: file_picker
-      url: "https://mirrors.cloud.tencent.com/dart-pub/"
+      url: "https://pub.flutter-io.cn"
     source: hosted
     version: "4.5.1"
   fixnum:
     dependency: transitive
     description:
       name: fixnum
-      url: "https://mirrors.cloud.tencent.com/dart-pub/"
+      url: "https://pub.flutter-io.cn"
     source: hosted
     version: "1.0.1"
-  floor:
-    dependency: "direct main"
-    description:
-      name: floor
-      url: "https://mirrors.cloud.tencent.com/dart-pub/"
-    source: hosted
-    version: "1.2.0"
-  floor_annotation:
+  flat_buffers:
     dependency: transitive
     description:
-      name: floor_annotation
-      url: "https://mirrors.cloud.tencent.com/dart-pub/"
+      name: flat_buffers
+      url: "https://pub.flutter-io.cn"
     source: hosted
-    version: "1.0.1"
-  floor_generator:
-    dependency: "direct dev"
-    description:
-      name: floor_generator
-      url: "https://mirrors.cloud.tencent.com/dart-pub/"
-    source: hosted
-    version: "1.2.0"
+    version: "2.0.5"
   flutter:
     dependency: "direct main"
     description: flutter
@@ -341,7 +327,7 @@ packages:
     dependency: transitive
     description:
       name: flutter_lints
-      url: "https://mirrors.cloud.tencent.com/dart-pub/"
+      url: "https://pub.flutter-io.cn"
     source: hosted
     version: "1.0.4"
   flutter_localizations:
@@ -353,21 +339,21 @@ packages:
     dependency: transitive
     description:
       name: flutter_plugin_android_lifecycle
-      url: "https://mirrors.cloud.tencent.com/dart-pub/"
+      url: "https://pub.flutter-io.cn"
     source: hosted
     version: "2.0.6"
   flutter_riverpod:
     dependency: "direct main"
     description:
       name: flutter_riverpod
-      url: "https://mirrors.cloud.tencent.com/dart-pub/"
+      url: "https://pub.flutter-io.cn"
     source: hosted
     version: "1.0.4"
   flutter_spinkit:
     dependency: transitive
     description:
       name: flutter_spinkit
-      url: "https://mirrors.cloud.tencent.com/dart-pub/"
+      url: "https://pub.flutter-io.cn"
     source: hosted
     version: "5.1.0"
   flutter_test:
@@ -384,308 +370,322 @@ packages:
     dependency: transitive
     description:
       name: frontend_server_client
-      url: "https://mirrors.cloud.tencent.com/dart-pub/"
+      url: "https://pub.flutter-io.cn"
     source: hosted
     version: "2.1.3"
   get_it:
     dependency: "direct main"
     description:
       name: get_it
-      url: "https://mirrors.cloud.tencent.com/dart-pub/"
+      url: "https://pub.flutter-io.cn"
     source: hosted
     version: "7.2.0"
   glob:
     dependency: transitive
     description:
       name: glob
-      url: "https://mirrors.cloud.tencent.com/dart-pub/"
+      url: "https://pub.flutter-io.cn"
     source: hosted
     version: "2.0.2"
   graphs:
     dependency: transitive
     description:
       name: graphs
-      url: "https://mirrors.cloud.tencent.com/dart-pub/"
+      url: "https://pub.flutter-io.cn"
     source: hosted
     version: "2.1.0"
   http:
     dependency: transitive
     description:
       name: http
-      url: "https://mirrors.cloud.tencent.com/dart-pub/"
+      url: "https://pub.flutter-io.cn"
     source: hosted
     version: "0.13.4"
   http_multi_server:
     dependency: transitive
     description:
       name: http_multi_server
-      url: "https://mirrors.cloud.tencent.com/dart-pub/"
+      url: "https://pub.flutter-io.cn"
     source: hosted
     version: "3.2.0"
   http_parser:
     dependency: transitive
     description:
       name: http_parser
-      url: "https://mirrors.cloud.tencent.com/dart-pub/"
+      url: "https://pub.flutter-io.cn"
     source: hosted
     version: "4.0.1"
   image:
     dependency: transitive
     description:
       name: image
-      url: "https://mirrors.cloud.tencent.com/dart-pub/"
+      url: "https://pub.flutter-io.cn"
     source: hosted
     version: "3.2.0"
   intl:
     dependency: "direct main"
     description:
       name: intl
-      url: "https://mirrors.cloud.tencent.com/dart-pub/"
+      url: "https://pub.flutter-io.cn"
     source: hosted
     version: "0.17.0"
   io:
     dependency: transitive
     description:
       name: io
-      url: "https://mirrors.cloud.tencent.com/dart-pub/"
+      url: "https://pub.flutter-io.cn"
     source: hosted
     version: "1.0.3"
   js:
     dependency: transitive
     description:
       name: js
-      url: "https://mirrors.cloud.tencent.com/dart-pub/"
+      url: "https://pub.flutter-io.cn"
     source: hosted
     version: "0.6.4"
   json_annotation:
     dependency: "direct main"
     description:
       name: json_annotation
-      url: "https://mirrors.cloud.tencent.com/dart-pub/"
+      url: "https://pub.flutter-io.cn"
     source: hosted
     version: "4.5.0"
   json_serializable:
     dependency: "direct dev"
     description:
       name: json_serializable
-      url: "https://mirrors.cloud.tencent.com/dart-pub/"
+      url: "https://pub.flutter-io.cn"
     source: hosted
     version: "6.2.0"
   linkify:
     dependency: transitive
     description:
       name: linkify
-      url: "https://mirrors.cloud.tencent.com/dart-pub/"
+      url: "https://pub.flutter-io.cn"
     source: hosted
     version: "4.1.0"
   lints:
     dependency: transitive
     description:
       name: lints
-      url: "https://mirrors.cloud.tencent.com/dart-pub/"
-    source: hosted
-    version: "1.0.1"
-  lists:
-    dependency: transitive
-    description:
-      name: lists
-      url: "https://mirrors.cloud.tencent.com/dart-pub/"
+      url: "https://pub.flutter-io.cn"
     source: hosted
     version: "1.0.1"
   logger:
     dependency: "direct main"
     description:
       name: logger
-      url: "https://mirrors.cloud.tencent.com/dart-pub/"
+      url: "https://pub.flutter-io.cn"
     source: hosted
     version: "1.1.0"
   logging:
     dependency: "direct main"
     description:
       name: logging
-      url: "https://mirrors.cloud.tencent.com/dart-pub/"
+      url: "https://pub.flutter-io.cn"
     source: hosted
     version: "1.0.2"
   matcher:
     dependency: transitive
     description:
       name: matcher
-      url: "https://mirrors.cloud.tencent.com/dart-pub/"
+      url: "https://pub.flutter-io.cn"
     source: hosted
     version: "0.12.11"
   material_color_utilities:
     dependency: transitive
     description:
       name: material_color_utilities
-      url: "https://mirrors.cloud.tencent.com/dart-pub/"
+      url: "https://pub.flutter-io.cn"
     source: hosted
     version: "0.1.4"
   meta:
     dependency: transitive
     description:
       name: meta
-      url: "https://mirrors.cloud.tencent.com/dart-pub/"
+      url: "https://pub.flutter-io.cn"
     source: hosted
     version: "1.7.0"
   mime:
     dependency: transitive
     description:
       name: mime
-      url: "https://mirrors.cloud.tencent.com/dart-pub/"
+      url: "https://pub.flutter-io.cn"
     source: hosted
     version: "1.0.2"
   msix:
     dependency: "direct dev"
     description:
       name: msix
-      url: "https://mirrors.cloud.tencent.com/dart-pub/"
+      url: "https://pub.flutter-io.cn"
     source: hosted
     version: "3.6.2"
   node_preamble:
     dependency: transitive
     description:
       name: node_preamble
-      url: "https://mirrors.cloud.tencent.com/dart-pub/"
+      url: "https://pub.flutter-io.cn"
     source: hosted
     version: "2.0.1"
   ntp:
     dependency: "direct main"
     description:
       name: ntp
-      url: "https://mirrors.cloud.tencent.com/dart-pub/"
+      url: "https://pub.flutter-io.cn"
     source: hosted
     version: "2.0.0"
+  objectbox:
+    dependency: "direct main"
+    description:
+      name: objectbox
+      url: "https://pub.flutter-io.cn"
+    source: hosted
+    version: "1.5.0"
+  objectbox_flutter_libs:
+    dependency: "direct main"
+    description:
+      name: objectbox_flutter_libs
+      url: "https://pub.flutter-io.cn"
+    source: hosted
+    version: "1.5.0"
+  objectbox_generator:
+    dependency: "direct dev"
+    description:
+      name: objectbox_generator
+      url: "https://pub.flutter-io.cn"
+    source: hosted
+    version: "1.5.0"
   otp:
     dependency: "direct main"
     description:
       name: otp
-      url: "https://mirrors.cloud.tencent.com/dart-pub/"
+      url: "https://pub.flutter-io.cn"
     source: hosted
     version: "3.0.2"
   package_config:
     dependency: transitive
     description:
       name: package_config
-      url: "https://mirrors.cloud.tencent.com/dart-pub/"
+      url: "https://pub.flutter-io.cn"
     source: hosted
     version: "2.0.2"
   path:
     dependency: transitive
     description:
       name: path
-      url: "https://mirrors.cloud.tencent.com/dart-pub/"
+      url: "https://pub.flutter-io.cn"
     source: hosted
     version: "1.8.1"
   path_provider:
     dependency: "direct main"
     description:
       name: path_provider
-      url: "https://mirrors.cloud.tencent.com/dart-pub/"
+      url: "https://pub.flutter-io.cn"
     source: hosted
     version: "2.0.10"
   path_provider_android:
     dependency: transitive
     description:
       name: path_provider_android
-      url: "https://mirrors.cloud.tencent.com/dart-pub/"
+      url: "https://pub.flutter-io.cn"
     source: hosted
     version: "2.0.14"
   path_provider_ios:
     dependency: transitive
     description:
       name: path_provider_ios
-      url: "https://mirrors.cloud.tencent.com/dart-pub/"
+      url: "https://pub.flutter-io.cn"
     source: hosted
     version: "2.0.9"
   path_provider_linux:
     dependency: transitive
     description:
       name: path_provider_linux
-      url: "https://mirrors.cloud.tencent.com/dart-pub/"
+      url: "https://pub.flutter-io.cn"
     source: hosted
     version: "2.1.6"
   path_provider_macos:
     dependency: transitive
     description:
       name: path_provider_macos
-      url: "https://mirrors.cloud.tencent.com/dart-pub/"
+      url: "https://pub.flutter-io.cn"
     source: hosted
     version: "2.0.6"
   path_provider_platform_interface:
     dependency: transitive
     description:
       name: path_provider_platform_interface
-      url: "https://mirrors.cloud.tencent.com/dart-pub/"
+      url: "https://pub.flutter-io.cn"
     source: hosted
     version: "2.0.4"
   path_provider_windows:
     dependency: transitive
     description:
       name: path_provider_windows
-      url: "https://mirrors.cloud.tencent.com/dart-pub/"
+      url: "https://pub.flutter-io.cn"
     source: hosted
     version: "2.0.6"
   petitparser:
     dependency: transitive
     description:
       name: petitparser
-      url: "https://mirrors.cloud.tencent.com/dart-pub/"
+      url: "https://pub.flutter-io.cn"
     source: hosted
     version: "5.0.0"
   platform:
     dependency: transitive
     description:
       name: platform
-      url: "https://mirrors.cloud.tencent.com/dart-pub/"
+      url: "https://pub.flutter-io.cn"
     source: hosted
     version: "3.1.0"
   plugin_platform_interface:
     dependency: transitive
     description:
       name: plugin_platform_interface
-      url: "https://mirrors.cloud.tencent.com/dart-pub/"
+      url: "https://pub.flutter-io.cn"
     source: hosted
     version: "2.1.2"
   pool:
     dependency: transitive
     description:
       name: pool
-      url: "https://mirrors.cloud.tencent.com/dart-pub/"
+      url: "https://pub.flutter-io.cn"
     source: hosted
     version: "1.5.0"
   pretty_dio_logger:
     dependency: "direct main"
     description:
       name: pretty_dio_logger
-      url: "https://mirrors.cloud.tencent.com/dart-pub/"
+      url: "https://pub.flutter-io.cn"
     source: hosted
     version: "1.2.0-beta-1"
   process:
     dependency: transitive
     description:
       name: process
-      url: "https://mirrors.cloud.tencent.com/dart-pub/"
+      url: "https://pub.flutter-io.cn"
     source: hosted
     version: "4.2.4"
   pub_semver:
     dependency: transitive
     description:
       name: pub_semver
-      url: "https://mirrors.cloud.tencent.com/dart-pub/"
+      url: "https://pub.flutter-io.cn"
     source: hosted
     version: "2.1.1"
   pubspec_parse:
     dependency: transitive
     description:
       name: pubspec_parse
-      url: "https://mirrors.cloud.tencent.com/dart-pub/"
+      url: "https://pub.flutter-io.cn"
     source: hosted
     version: "1.2.0"
   quiver:
     dependency: transitive
     description:
       name: quiver
-      url: "https://mirrors.cloud.tencent.com/dart-pub/"
+      url: "https://pub.flutter-io.cn"
     source: hosted
     version: "3.1.0"
   retrofit:
@@ -710,98 +710,98 @@ packages:
     dependency: transitive
     description:
       name: riverpod
-      url: "https://mirrors.cloud.tencent.com/dart-pub/"
+      url: "https://pub.flutter-io.cn"
     source: hosted
     version: "1.0.3"
   rxdart:
     dependency: "direct main"
     description:
       name: rxdart
-      url: "https://mirrors.cloud.tencent.com/dart-pub/"
+      url: "https://pub.flutter-io.cn"
     source: hosted
     version: "0.27.3"
   shared_preferences:
     dependency: "direct main"
     description:
       name: shared_preferences
-      url: "https://mirrors.cloud.tencent.com/dart-pub/"
+      url: "https://pub.flutter-io.cn"
     source: hosted
     version: "2.0.15"
   shared_preferences_android:
     dependency: transitive
     description:
       name: shared_preferences_android
-      url: "https://mirrors.cloud.tencent.com/dart-pub/"
+      url: "https://pub.flutter-io.cn"
     source: hosted
     version: "2.0.12"
   shared_preferences_ios:
     dependency: transitive
     description:
       name: shared_preferences_ios
-      url: "https://mirrors.cloud.tencent.com/dart-pub/"
+      url: "https://pub.flutter-io.cn"
     source: hosted
     version: "2.1.1"
   shared_preferences_linux:
     dependency: transitive
     description:
       name: shared_preferences_linux
-      url: "https://mirrors.cloud.tencent.com/dart-pub/"
+      url: "https://pub.flutter-io.cn"
     source: hosted
     version: "2.1.1"
   shared_preferences_macos:
     dependency: transitive
     description:
       name: shared_preferences_macos
-      url: "https://mirrors.cloud.tencent.com/dart-pub/"
+      url: "https://pub.flutter-io.cn"
     source: hosted
     version: "2.0.4"
   shared_preferences_platform_interface:
     dependency: transitive
     description:
       name: shared_preferences_platform_interface
-      url: "https://mirrors.cloud.tencent.com/dart-pub/"
+      url: "https://pub.flutter-io.cn"
     source: hosted
     version: "2.0.0"
   shared_preferences_web:
     dependency: transitive
     description:
       name: shared_preferences_web
-      url: "https://mirrors.cloud.tencent.com/dart-pub/"
+      url: "https://pub.flutter-io.cn"
     source: hosted
     version: "2.0.4"
   shared_preferences_windows:
     dependency: transitive
     description:
       name: shared_preferences_windows
-      url: "https://mirrors.cloud.tencent.com/dart-pub/"
+      url: "https://pub.flutter-io.cn"
     source: hosted
     version: "2.1.1"
   shelf:
     dependency: transitive
     description:
       name: shelf
-      url: "https://mirrors.cloud.tencent.com/dart-pub/"
+      url: "https://pub.flutter-io.cn"
     source: hosted
     version: "1.3.0"
   shelf_packages_handler:
     dependency: transitive
     description:
       name: shelf_packages_handler
-      url: "https://mirrors.cloud.tencent.com/dart-pub/"
+      url: "https://pub.flutter-io.cn"
     source: hosted
     version: "3.0.0"
   shelf_static:
     dependency: transitive
     description:
       name: shelf_static
-      url: "https://mirrors.cloud.tencent.com/dart-pub/"
+      url: "https://pub.flutter-io.cn"
     source: hosted
     version: "1.1.0"
   shelf_web_socket:
     dependency: transitive
     description:
       name: shelf_web_socket
-      url: "https://mirrors.cloud.tencent.com/dart-pub/"
+      url: "https://pub.flutter-io.cn"
     source: hosted
     version: "1.0.1"
   sky_engine:
@@ -813,113 +813,99 @@ packages:
     dependency: transitive
     description:
       name: source_gen
-      url: "https://mirrors.cloud.tencent.com/dart-pub/"
+      url: "https://pub.flutter-io.cn"
     source: hosted
     version: "1.2.2"
   source_helper:
     dependency: transitive
     description:
       name: source_helper
-      url: "https://mirrors.cloud.tencent.com/dart-pub/"
+      url: "https://pub.flutter-io.cn"
     source: hosted
     version: "1.3.2"
   source_map_stack_trace:
     dependency: transitive
     description:
       name: source_map_stack_trace
-      url: "https://mirrors.cloud.tencent.com/dart-pub/"
+      url: "https://pub.flutter-io.cn"
     source: hosted
     version: "2.1.0"
   source_maps:
     dependency: transitive
     description:
       name: source_maps
-      url: "https://mirrors.cloud.tencent.com/dart-pub/"
+      url: "https://pub.flutter-io.cn"
     source: hosted
     version: "0.10.10"
   source_span:
     dependency: transitive
     description:
       name: source_span
-      url: "https://mirrors.cloud.tencent.com/dart-pub/"
+      url: "https://pub.flutter-io.cn"
     source: hosted
     version: "1.8.2"
-  sqflite:
-    dependency: "direct main"
-    description:
-      name: sqflite
-      url: "https://mirrors.cloud.tencent.com/dart-pub/"
-    source: hosted
-    version: "2.0.2+1"
   sqflite_common:
     dependency: transitive
     description:
       name: sqflite_common
-      url: "https://mirrors.cloud.tencent.com/dart-pub/"
+      url: "https://pub.flutter-io.cn"
     source: hosted
     version: "2.2.1+1"
   sqflite_common_ffi:
-    dependency: transitive
+    dependency: "direct main"
     description:
       name: sqflite_common_ffi
-      url: "https://mirrors.cloud.tencent.com/dart-pub/"
+      url: "https://pub.flutter-io.cn"
     source: hosted
     version: "2.1.1"
   sqlite3:
     dependency: transitive
     description:
       name: sqlite3
-      url: "https://mirrors.cloud.tencent.com/dart-pub/"
+      url: "https://pub.flutter-io.cn"
     source: hosted
     version: "1.7.1"
   stack_trace:
     dependency: transitive
     description:
       name: stack_trace
-      url: "https://mirrors.cloud.tencent.com/dart-pub/"
+      url: "https://pub.flutter-io.cn"
     source: hosted
     version: "1.10.0"
   state_notifier:
     dependency: transitive
     description:
       name: state_notifier
-      url: "https://mirrors.cloud.tencent.com/dart-pub/"
+      url: "https://pub.flutter-io.cn"
     source: hosted
     version: "0.7.2+1"
   stream_channel:
     dependency: transitive
     description:
       name: stream_channel
-      url: "https://mirrors.cloud.tencent.com/dart-pub/"
+      url: "https://pub.flutter-io.cn"
     source: hosted
     version: "2.1.0"
   stream_transform:
     dependency: transitive
     description:
       name: stream_transform
-      url: "https://mirrors.cloud.tencent.com/dart-pub/"
+      url: "https://pub.flutter-io.cn"
     source: hosted
     version: "2.0.0"
   string_scanner:
     dependency: transitive
     description:
       name: string_scanner
-      url: "https://mirrors.cloud.tencent.com/dart-pub/"
+      url: "https://pub.flutter-io.cn"
     source: hosted
     version: "1.1.0"
-  strings:
-    dependency: transitive
-    description:
-      name: strings
-      url: "https://mirrors.cloud.tencent.com/dart-pub/"
-    source: hosted
-    version: "0.2.2"
   super_editor:
     dependency: "direct main"
     description:
       path: super_editor
       ref: HEAD
-      resolved-ref: "53bcf6ce85dc1b3a1149ed33a491e8c24919a369"
+      resolved-ref: f180eb9ce4b6a56cee20e1b8afd29b59d0e3eb75
       url: "https://github.com/superlistapp/super_editor.git"
     source: git
     version: "0.2.0"
@@ -927,140 +913,133 @@ packages:
     dependency: transitive
     description:
       name: super_text_layout
-      url: "https://mirrors.cloud.tencent.com/dart-pub/"
+      url: "https://pub.flutter-io.cn"
     source: hosted
     version: "0.1.0"
   synchronized:
     dependency: transitive
     description:
       name: synchronized
-      url: "https://mirrors.cloud.tencent.com/dart-pub/"
+      url: "https://pub.flutter-io.cn"
     source: hosted
     version: "3.0.0+2"
   term_glyph:
     dependency: transitive
     description:
       name: term_glyph
-      url: "https://mirrors.cloud.tencent.com/dart-pub/"
+      url: "https://pub.flutter-io.cn"
     source: hosted
     version: "1.2.0"
   test:
     dependency: transitive
     description:
       name: test
-      url: "https://mirrors.cloud.tencent.com/dart-pub/"
+      url: "https://pub.flutter-io.cn"
     source: hosted
     version: "1.21.1"
   test_api:
     dependency: transitive
     description:
       name: test_api
-      url: "https://mirrors.cloud.tencent.com/dart-pub/"
+      url: "https://pub.flutter-io.cn"
     source: hosted
     version: "0.4.9"
   test_core:
     dependency: transitive
     description:
       name: test_core
-      url: "https://mirrors.cloud.tencent.com/dart-pub/"
+      url: "https://pub.flutter-io.cn"
     source: hosted
     version: "0.4.13"
   timing:
     dependency: transitive
     description:
       name: timing
-      url: "https://mirrors.cloud.tencent.com/dart-pub/"
+      url: "https://pub.flutter-io.cn"
     source: hosted
     version: "1.0.0"
   tuple:
     dependency: transitive
     description:
       name: tuple
-      url: "https://mirrors.cloud.tencent.com/dart-pub/"
+      url: "https://pub.flutter-io.cn"
     source: hosted
     version: "2.0.0"
   typed_data:
     dependency: transitive
     description:
       name: typed_data
-      url: "https://mirrors.cloud.tencent.com/dart-pub/"
+      url: "https://pub.flutter-io.cn"
     source: hosted
     version: "1.3.1"
-  unicode:
-    dependency: transitive
-    description:
-      name: unicode
-      url: "https://mirrors.cloud.tencent.com/dart-pub/"
-    source: hosted
-    version: "0.3.1"
   uuid:
     dependency: "direct main"
     description:
       name: uuid
-      url: "https://mirrors.cloud.tencent.com/dart-pub/"
+      url: "https://pub.flutter-io.cn"
     source: hosted
     version: "3.0.6"
   vector_math:
     dependency: transitive
     description:
       name: vector_math
-      url: "https://mirrors.cloud.tencent.com/dart-pub/"
+      url: "https://pub.flutter-io.cn"
     source: hosted
     version: "2.1.2"
   vm_service:
     dependency: transitive
     description:
       name: vm_service
-      url: "https://mirrors.cloud.tencent.com/dart-pub/"
+      url: "https://pub.flutter-io.cn"
     source: hosted
     version: "8.3.0"
   watcher:
     dependency: transitive
     description:
       name: watcher
-      url: "https://mirrors.cloud.tencent.com/dart-pub/"
+      url: "https://pub.flutter-io.cn"
     source: hosted
     version: "1.0.1"
   web_socket_channel:
     dependency: transitive
     description:
       name: web_socket_channel
-      url: "https://mirrors.cloud.tencent.com/dart-pub/"
+      url: "https://pub.flutter-io.cn"
     source: hosted
     version: "2.2.0"
   webkit_inspection_protocol:
     dependency: transitive
     description:
       name: webkit_inspection_protocol
-      url: "https://mirrors.cloud.tencent.com/dart-pub/"
+      url: "https://pub.flutter-io.cn"
     source: hosted
-    version: "1.0.1"
+    version: "1.1.0"
   win32:
     dependency: transitive
     description:
       name: win32
-      url: "https://mirrors.cloud.tencent.com/dart-pub/"
+      url: "https://pub.flutter-io.cn"
     source: hosted
     version: "2.6.1"
   xdg_directories:
     dependency: transitive
     description:
       name: xdg_directories
-      url: "https://mirrors.cloud.tencent.com/dart-pub/"
+      url: "https://pub.flutter-io.cn"
     source: hosted
     version: "0.2.0+1"
   xml:
     dependency: transitive
     description:
       name: xml
-      url: "https://mirrors.cloud.tencent.com/dart-pub/"
+      url: "https://pub.flutter-io.cn"
     source: hosted
     version: "6.0.1"
   yaml:
     dependency: transitive
     description:
       name: yaml
-      url: "https://mirrors.cloud.tencent.com/dart-pub/"
+      url: "https://pub.flutter-io.cn"
     source: hosted
     version: "3.1.1"
 sdks:

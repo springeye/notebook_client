@@ -199,7 +199,7 @@ class _HomeScreenState extends BaseScreen<HomeDesktopScreen> {
       child: ElevatedButton.icon(
         icon: const Icon(Icons.add),
         onPressed: () async {
-          await noteControl.create(S.of(context)!.title_unnamed, json.encode("aaaa"));
+          noteControl.create(S.of(context)!.title_unnamed, json.encode("aaaa"));
           noteControl.load();
         },
         label: Text(S.of(context)!.create_note),
@@ -299,7 +299,7 @@ class _HomeScreenState extends BaseScreen<HomeDesktopScreen> {
                               offset: Offset(offsetX, 0),
                             ),
                             onTap: () {
-                              _onTapNoteBook(true, notebooks[index].id,ref);
+                              _onTapNoteBook(true, notebooks[index].uuid,ref);
                             },
                           ),
                         );
