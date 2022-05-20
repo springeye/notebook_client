@@ -13,20 +13,20 @@ import '_toolbar.dart';
 /// This editor will expand in functionality as package
 /// capabilities expand.
 class AppEditor extends StatefulWidget {
-  final Document doc;
-  const AppEditor({Key? key, required this.doc}) : super(key: key);
+  const AppEditor({Key? key}) : super(key: key);
 
   @override
-  AppEditorState createState() => AppEditorState(doc);
+  AppEditorState createState() => AppEditorState();
+
 }
 
 class AppEditorState extends State<AppEditor> {
   final GlobalKey _docLayoutKey = GlobalKey();
 
-  final Document doc;
+  late Document doc;
   late DocumentEditor _docEditor;
   late DocumentComposer _composer;
-  late CommonEditorOperations _docOps;
+  late CommonEditorOperations docOps;
 
   late FocusNode _editorFocusNode;
 
@@ -42,15 +42,16 @@ class AppEditorState extends State<AppEditor> {
   OverlayEntry? _imageFormatBarOverlayEntry;
   final _imageSelectionAnchor = ValueNotifier<Offset?>(null);
 
-  AppEditorState(this.doc);
+  AppEditorState();
 
   @override
   void initState() {
     super.initState();
-      doc .addListener(_hideOrShowToolbar);
+    doc=createInitialDocument();
+    doc .addListener(_hideOrShowToolbar);
     _docEditor = DocumentEditor(document: doc as MutableDocument);
     _composer = DocumentComposer()..addListener(_hideOrShowToolbar);
-    _docOps = CommonEditorOperations(
+    docOps = CommonEditorOperations(
       editor: _docEditor,
       composer: _composer,
       documentLayoutResolver: () =>
@@ -224,13 +225,13 @@ class AppEditorState extends State<AppEditor> {
     }
   }
 
-  void _cut() => _docOps.cut();
+  void _cut() => docOps.cut();
 
-  void _copy() => _docOps.copy();
+  void _copy() => docOps.copy();
 
-  void _paste() => _docOps.paste();
+  void _paste() => docOps.paste();
 
-  void _selectAll() => _docOps.selectAll();
+  void _selectAll() => docOps.selectAll();
 
   void _showImageToolbar() {
     if (_imageFormatBarOverlayEntry == null) {
@@ -406,7 +407,7 @@ class AppEditorState extends State<AppEditor> {
         return KeyboardEditingToolbar(
           document: doc,
           composer: _composer,
-          commonOps: _docOps,
+          commonOps: docOps,
         );
       },
     );

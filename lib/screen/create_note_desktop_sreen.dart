@@ -68,16 +68,9 @@ class _CreateNoteState extends State<CreateNoteDesktopScreen> {
       Note? showNote = ref.watch(showDetailProvider);
       titleController.value = TextEditingValue(text: showNote?.title ?? "");
        String? content = showNote?.content;
-       content ??= "";
-       AppEditor baseEditor = AppEditor(key: editorKey,doc: MutableDocument(nodes: [
-         ParagraphNode(
-           id: DocumentEditor.createNodeId(),
-           text: AttributedText(
-             text:
-             content,
-           ),
-         ),
-       ]),);
+       content ??= "111";
+       editorKey.currentState?.docOps.insertPlainText(content);
+       AppEditor baseEditor = AppEditor(key: editorKey);
       return Scaffold(
         body: MouseRegion(
           onHover: (PointerHoverEvent event) {
