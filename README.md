@@ -4,7 +4,8 @@
 [![build_linux](https://github.com/henjue/notebook/actions/workflows/build_linux.yaml/badge.svg)](https://github.com/henjue/notebook/actions/workflows/build_linux.yaml)
 [![build_macos](https://github.com/henjue/notebook/actions/workflows/build_macos.yaml/badge.svg)](https://github.com/henjue/notebook/actions/workflows/build_macos.yaml)
 
-## project developing,coming soon!
+## ~~project developing,coming soon!~~
+(The new version is under development!)[https://github.com/springeye/oplin]
 
 ![img1](screenhots/img1.png)
 
