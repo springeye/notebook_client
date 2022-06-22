@@ -1,8 +1,8 @@
 # notebook
 
-[![build_windows](https://github.com/henjue/notebook/actions/workflows/build_windows.yaml/badge.svg)](https://github.com/henjue/notebook/actions/workflows/build_windows.yaml)
-[![build_linux](https://github.com/henjue/notebook/actions/workflows/build_linux.yaml/badge.svg)](https://github.com/henjue/notebook/actions/workflows/build_linux.yaml)
-[![build_macos](https://github.com/henjue/notebook/actions/workflows/build_macos.yaml/badge.svg)](https://github.com/henjue/notebook/actions/workflows/build_macos.yaml)
+[![build_windows](https://github.com/springeye/notebook/actions/workflows/build_windows.yaml/badge.svg)](https://github.com/henjue/notebook/actions/workflows/build_windows.yaml)
+[![build_linux](https://github.com/springeye/notebook/actions/workflows/build_linux.yaml/badge.svg)](https://github.com/henjue/notebook/actions/workflows/build_linux.yaml)
+[![build_macos](https://github.com/springeye/notebook/actions/workflows/build_macos.yaml/badge.svg)](https://github.com/henjue/notebook/actions/workflows/build_macos.yaml)
 
 ## ~~project developing,coming soon!~~
 (The new version is under development!)[https://github.com/springeye/oplin]
